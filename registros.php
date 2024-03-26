@@ -16,6 +16,16 @@ if (!empty($_POST["id"]) && !empty($_POST["nombre"]) && !empty($_POST["apellido"
     // Obtener la conexión a la base de datos
     $conexion = Database::obtenerConexion();
 
+    // Verificar si el ID del usuario ya existe en la base de datos
+    $query_verificar = "SELECT * FROM usuarios WHERE id = '$id'";
+    $resultado_verificar = $conexion->query($query_verificar);
+
+    if ($resultado_verificar->num_rows > 0) {
+        // Si el ID ya existe, mostrar un mensaje de error y terminar la ejecución
+        echo " USUARIO NO REGISTRADO. El ID $id YA está en uso, por favor ingrese un ID válido.";
+        exit(); // Terminar la ejecución del script
+    }
+
     // Preparar la consulta SQL para insertar un nuevo usuario
     $query = "INSERT INTO usuarios (id, nombre, apellido, edad, cargo, email, usuario, contraseña) VALUES ('$id', '$nombre', '$apellido', '$edad', '$cargo', '$email', '$username', '$password')";
 
