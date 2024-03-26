@@ -25,3 +25,6 @@ CREATE TABLE Votaciones (
     FOREIGN KEY (IDPropuesta) REFERENCES Propuestas(IDPropuesta),
     FOREIGN KEY (IDUsuario) REFERENCES Usuarios(ID)
 );
+
+INSERT INTO usuarios (ID, Nombre, Apellido, Edad, Cargo, Email, Usuario, Contraseña) 
+VALUES ('1234567890', 'Pedro', 'Perez', 30, 'Administrador', 'admin@asamblea.com', 'admon', 'admon');
