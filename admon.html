@@ -9,12 +9,12 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Alinea elementos en columna */
         }
 
         form {
@@ -22,8 +22,9 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 400px;
-            margin: 0 auto;
+            margin-top: 20px; /* Espacio superior */
+            width: 80%; /* Ancho del formulario */
+            max-width: 400px; /* Ancho máximo */
         }
 
         label {
@@ -34,10 +35,10 @@
         input[type="text"],
         input[type="password"] {
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            width: 100%;
+            width: calc(100% - 22px);
         }
 
         input[type="submit"] {
@@ -56,33 +57,37 @@
     </style>
 </head>
 <body>
-    <h1>Panel de Administrador</h1>
+    <h1>Panel de Administrador</h1> <!-- Título fuera del formulario -->
     <form action="registros.php" method="post">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required>
+        <fieldset>
+            <legend>Registro de Usuarios</legend>
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
 
-        <label for="edad">Edad:</label>
-        <input type="text" id="edad" name="edad" required>
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" name="edad" required>
 
-        <label for="cargo">Cargo:</label>
-        <input type="text" id="cargo" name="cargo" required>
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required>
 
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
 
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" name="username" required>
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+        </fieldset>
 
         <input type="submit" value="Registrar Usuario">
     </form>
 </body>
 </html>
+
