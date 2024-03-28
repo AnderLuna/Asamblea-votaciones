@@ -13,7 +13,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
     $conexion = Database::obtenerConexion();
 
     // Consulta SQL para buscar al usuario en la base de datos
-    $query = "SELECT * FROM usuarios WHERE usuario = '$username' AND contraseña = '$password'";
+    $query = "SELECT id, nombre, apellido FROM usuarios WHERE usuario = '$username' AND contraseña = '$password'";
 
     // Ejecutar la consulta
     $resultado = $conexion->query($query);
@@ -23,10 +23,15 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         // El usuario y la contraseña son válidos
         echo "Login exitoso. Bienvenido, $username!";
         
+        $usuario = $resultado->fetch_assoc();
+        
         // Verificar si el usuario y la contraseña son "admin" y "admon"
         if ($username == "admon" && $password == "admon") {
             // Redireccionar a admon.html
             header("Location: admon.html");
+            exit(); // Asegurar que el script se detenga después de redirigir
+        }else{
+            header("Location: usuario.php?id={$usuario['id']}&nombre={$usuario['nombre']}&apellido={$usuario['apellido']}");
             exit(); // Asegurar que el script se detenga después de redirigir
         }
     } else {
