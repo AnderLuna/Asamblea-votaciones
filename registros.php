@@ -15,7 +15,7 @@ require_once 'database.php';
 
 
 // Verificar si se han enviado datos del formulario de registro
-if (validarNumero($id) === true) {
+if (validarID($id) === true) {
 
 
     // Obtener la conexión a la base de datos
