@@ -121,6 +121,7 @@
         <form class="form-group">
             <table>
                 <tr>
+                    <th>IdPropuesta</th>
                     <th>Titulo</th>
                     <th>Descripción</th>
                 </tr>
