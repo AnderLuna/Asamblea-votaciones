@@ -124,7 +124,7 @@
                     <th>Titulo</th>
                     <th>Descripción</th>
                 </tr>
-                    <?php include 'editar_propuesta.php'; ?>
+                    <?php include 'visualizacion_editar_propuesta.php'; ?>
             </table>
             <input type="submit" value="Actualizar Propuesta">
         </form>
