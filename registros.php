@@ -1,8 +1,8 @@
 <?php
 require_once 'database.php';
 
-// Verificar si se han enviado datos del formulario de registro
-if (!empty($_POST["id"]) && !empty($_POST["nombre"]) && !empty($_POST["apellido"]) && !empty($_POST["edad"]) && !empty($_POST["cargo"]) && !empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["password"])) {
+
+
     // Capturar los datos del formulario
     $id = $_POST["id"];
     $nombre = $_POST["nombre"];
@@ -12,6 +12,11 @@ if (!empty($_POST["id"]) && !empty($_POST["nombre"]) && !empty($_POST["apellido"
     $email = $_POST["email"];
     $username = $_POST["username"];
     $password = $_POST["password"];
+
+
+// Verificar si se han enviado datos del formulario de registro
+if (validarNumero($id) === true) {
+
 
     // Obtener la conexión a la base de datos
     $conexion = Database::obtenerConexion();
@@ -38,8 +43,18 @@ if (!empty($_POST["id"]) && !empty($_POST["nombre"]) && !empty($_POST["apellido"
 
     // Cerrar la conexión a la base de datos
     $conexion->close();
-} else {
-    // Si hay campos vacíos, mostrar un mensaje de error
-    echo "Por favor, completa todos los campos del formulario.";
 }
+
+
+function validarNumero($cadena) {
+    // Verificar si la cadena tiene exactamente 10 caracteres y todos son números
+    if(preg_match('/^[0-9]{10}$/', $cadena)) {
+        return true; // La cadena tiene exactamente 10 números
+    } else {
+        echo "El ( ID ) deben ser 10 numeros sin caracteres especiales";
+        return false; // La cadena no tiene exactamente 10 números
+    }
+}
+
+
 ?>
