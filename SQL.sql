@@ -1,12 +1,12 @@
-CREATE TABLE Usuarios (
-    ID VARCHAR(10) PRIMARY KEY NOT NULL,
-    Nombre VARCHAR(100) NOT NULL,
-    Apellido VARCHAR(100) NOT NULL,
-    Edad INT NOT NULL,
-    Cargo VARCHAR(100) NOT NULL,
-    Email VARCHAR(100),
-    Usuario VARCHAR(100) NOT NULL,
-    Contraseña VARCHAR(50) NOT NULL
+CREATE TABLE usuarios (
+    id VARCHAR(10) PRIMARY KEY NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    edad INT NOT NULL,
+    cargo VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    usuario VARCHAR(100) NOT NULL,
+    contraseña VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE propuestas (
@@ -17,13 +17,13 @@ CREATE TABLE propuestas (
     FOREIGN KEY (idusuario) REFERENCES usuarios(id)
 );
 
-CREATE TABLE Votaciones (
-    IDPropuesta INT NOT NULL,
-    IDUsuario VARCHAR(10) NOT NULL,
-    Voto VARCHAR(50) NOT NULL,
-    PRIMARY KEY (IDPropuesta, IDUsuario),
-    FOREIGN KEY (IDPropuesta) REFERENCES Propuestas(IDPropuesta),
-    FOREIGN KEY (IDUsuario) REFERENCES Usuarios(ID)
+CREATE TABLE votaciones (
+    idpropuesta INT(5) NOT NULL,
+    idusuario VARCHAR(10) NOT NULL,
+    votos INT NOT NULL,
+    PRIMARY KEY (idpropuesta, idusuario),
+    FOREIGN KEY (idpropuesta) REFERENCES propuestas(idpropuesta),
+    FOREIGN KEY (idusuario) REFERENCES usuarios(id)
 );
 
 INSERT INTO usuarios (ID, Nombre, Apellido, Edad, Cargo, Email, Usuario, Contraseña) 
