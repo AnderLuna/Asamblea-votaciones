@@ -24,7 +24,7 @@ class Database {
             if (self::$conexion->connect_errno) {
                 die("Error al conectar a la base de datos: " . self::$conexion->connect_error);
             } else {
-                echo "Conexión exitosa a la base de datos.";
+                
             }
         }
 
