@@ -14,13 +14,13 @@ CREATE TABLE propuestas (
     titulo VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     idusuario VARCHAR(10) NOT NULL,
+    votos INT NOT NULL,
     FOREIGN KEY (idusuario) REFERENCES usuarios(id)
 );
 
 CREATE TABLE votaciones (
     idpropuesta INT(5) NOT NULL,
     idusuario VARCHAR(10) NOT NULL,
-    votos INT NOT NULL,
     PRIMARY KEY (idpropuesta, idusuario),
     FOREIGN KEY (idpropuesta) REFERENCES propuestas(idpropuesta),
     FOREIGN KEY (idusuario) REFERENCES usuarios(id)
