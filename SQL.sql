@@ -21,7 +21,7 @@ CREATE TABLE propuestas (
 CREATE TABLE votaciones (
     idpropuesta INT(5) NOT NULL,
     idvotante VARCHAR(10) NOT NULL,
-    PRIMARY KEY (idpropuesta, idusuario),
+    PRIMARY KEY (idpropuesta, idvotante),
     FOREIGN KEY (idpropuesta) REFERENCES propuestas(idpropuesta),
     FOREIGN KEY (idvotante) REFERENCES usuarios(id)
 );
