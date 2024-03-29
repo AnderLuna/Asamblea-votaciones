@@ -103,7 +103,7 @@
     <div class="container">
 
         <h2>Visualización de Propuestas</h2>
-        <form action="visualizacion_propuesta.php" method="post" class="form-group">
+        <form class="form-group">
         <table>
             <tr>
                 <th>Nombre</th>
@@ -119,14 +119,15 @@
 
     <div class="container">
         <h2>Actualización de Propuesta</h2>
-        <form action="actualizar_propuesta.php" method="post" class="form-group">
+        <form class="form-group">
             <table>
                 <tr>
-                    <th>Título</th>
+                    <th>Titulo</th>
                     <th>Descripción</th>
-                    <th>Votos</th>
                 </tr>
-            </table><input type="submit" value="Actualizar Propuesta">
+                    <?php include 'editar_propuesta.php'; ?>
+            </table>
+            <input type="submit" value="Actualizar Propuesta">
         </form>
     </div>
 
