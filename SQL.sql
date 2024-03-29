@@ -9,12 +9,12 @@ CREATE TABLE Usuarios (
     Contraseña VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Propuestas (
-    IDPropuesta INT PRIMARY KEY NOT NULL,
-    Titulo VARCHAR(100) NOT NULL,
-    Descripcion VARCHAR(255) NOT NULL,
-    IDUsuario VARCHAR(10) NOT NULL,
-    FOREIGN KEY (IDUsuario) REFERENCES Usuarios(ID)
+CREATE TABLE propuestas (
+    idpropuesta INT(5)PRIMARY KEY NOT NULL,
+    titulo VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    idusuario VARCHAR(10) NOT NULL,
+    FOREIGN KEY (idusuario) REFERENCES usuarios(id)
 );
 
 CREATE TABLE Votaciones (

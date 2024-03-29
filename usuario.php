@@ -90,6 +90,7 @@
     <div class="container">
         <h2>Registro de Propuestas</h2>
         <form action="registrar_propuesta.php" method="post" class="form-group">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <label for="titulo">Título de la Propuesta:</label>
             <input type="text" id="titulo" name="titulo" required>
             <label for="descripcion">Descripción de la Propuesta:</label>
