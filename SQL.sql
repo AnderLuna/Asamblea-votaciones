@@ -20,10 +20,10 @@ CREATE TABLE propuestas (
 
 CREATE TABLE votaciones (
     idpropuesta INT(5) NOT NULL,
-    idusuario VARCHAR(10) NOT NULL,
+    idvotante VARCHAR(10) NOT NULL,
     PRIMARY KEY (idpropuesta, idusuario),
     FOREIGN KEY (idpropuesta) REFERENCES propuestas(idpropuesta),
-    FOREIGN KEY (idusuario) REFERENCES usuarios(id)
+    FOREIGN KEY (idvotante) REFERENCES usuarios(id)
 );
 
 INSERT INTO usuarios (ID, Nombre, Apellido, Edad, Cargo, Email, Usuario, Contraseña) 
