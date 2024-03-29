@@ -46,9 +46,9 @@ if (validarNumero($id) === true) {
 }
 
 
-function validarNumero($cadena) {
+function validarID($ID) {
     // Verificar si la cadena tiene exactamente 10 caracteres y todos son números
-    if(preg_match('/^[0-9]{10}$/', $cadena)) {
+    if(preg_match('/^[0-9]{10}$/', $ID)) {
         return true; // La cadena tiene exactamente 10 números
     } else {
         echo "El ( ID ) deben ser 10 numeros sin caracteres especiales";
