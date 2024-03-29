@@ -11,10 +11,12 @@ if (!empty($_POST["titulo"]) && !empty($_POST["descripcion"])) {
     $conexion = Database::obtenerConexion(); 
 
     // Consulta SQL para insertar la propuesta en la base de datos
-    $query = "INSERT INTO propuestas (IDPropuesta, Titulo, Descripcion, IDUsuario) VALUES ('$IDPropuesta', '$titulo', '$descripcion', '$id')";
+    $query = "INSERT INTO propuestas (idpropuesta, titulo, descripcion, idusuario) VALUES ('$IDPropuesta', '$titulo', '$descripcion', '$id')";
+
+    $sql = "INSERT INTO votaciones (idpropuesta, idusuario, votos) VALUES ('$IDPropuesta', '$id', 0)";
 
     // Ejecutar la consulta SQL y manejar los errores
-    if ($conexion->query($query) === TRUE) {
+    if ($conexion->query($query) === TRUE and $conexion->query($sql) === TRUE) {
         echo "Propuesta registrada correctamente.";
     } else {
         echo "Error al registrar la propuesta: " . $conexion->error;
