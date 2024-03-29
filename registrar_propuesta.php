@@ -42,7 +42,7 @@ function generarNumeroAleatorio() {
         $numeroString = (string) $numero;
 
         // Verificar si el número ya existe en la base de datos
-        $sql = "SELECT IDPropuesta FROM propuestas WHERE IDPropuesta = '$numeroString'";
+        $sql = "SELECT idpropuesta FROM propuestas WHERE idpropuesta = '$numeroString'";
         $resultado = $conexion->query($sql);
 
         // Si el número no existe en la base de datos, salir del bucle
