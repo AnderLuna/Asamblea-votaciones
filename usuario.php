@@ -106,8 +106,7 @@
         <form class="form-group">
         <table>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
+                <th>IdPropuesta</th>
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Votos</th>
