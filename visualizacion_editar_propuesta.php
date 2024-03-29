@@ -15,8 +15,8 @@ if ($resultado->num_rows > 0) {
     // Mostrar los datos en la tabla
     while ($fila = $resultado->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $fila['titulo'] . "</td>";
-        echo "<td>" . $fila['descripcion'] . "</td>";
+        echo "<td contenteditable='true'>" . $fila['titulo'] . "</td>";
+        echo "<td contenteditable='true'>" . $fila['descripcion'] . "</td>";
         echo "</tr>";
     }
 } else {
