@@ -117,16 +117,15 @@
     </div>
 
     <div class="container">
-        <h2>Actualización de Propuesta</h2>
-        <form class="form-group">
-            <table>
-                <tr>
-                    <th>IdPropuesta</th>
-                    <th>Titulo</th>
-                    <th>Descripción</th>
-                </tr>
-                    <?php include 'visualizacion_editar_propuesta.php'; ?>
-            </table>
+        <h2>Actualizacion de Propuesta</h2>
+        <form action="actualizar_propuesta.php" method="post" class="form-group">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <label for="id_propuesta">ID de la Propuesta a editar:</label>
+            <input type="text" id="ideditar" name="ideditar" required>
+            <label for="titulo">Título de la Propuesta:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            <label for="descripcion">Descripción de la Propuesta:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>            
             <input type="submit" value="Actualizar Propuesta">
         </form>
     </div>
