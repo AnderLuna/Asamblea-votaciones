@@ -57,12 +57,9 @@
     </style>
 </head>
 <body>
-    <?php
-        // Recoger los datos del usuario de la URL
-        $nombre = $_GET['nombre'];
-        $apellido = $_GET['apellido'];
-    ?>
-    <h1>Administrador, <?php echo $nombre . ' - ' . $apellido; ?> </h1>
+
+    <?php include 'encabezado.php'; ?>
+    
     <form action="registros.php" method="post">
         <h1>Registro de Usuarios</h1>
         <label for="id">ID:</label>
