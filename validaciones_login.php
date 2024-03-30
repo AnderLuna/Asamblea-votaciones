@@ -28,10 +28,10 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         // Verificar si el usuario y la contraseña son "admin" y "admon"
         if ($username == "admon" && $password == "admon") {
             // Redireccionar a admon.html
-            header("Location: admon.php?nombre={$usuario['nombre']}&apellido={$usuario['apellido']}");
+            header("Location: admon.php?id={$usuario['id']}");
             exit(); // Asegurar que el script se detenga después de redirigir
         }else{
-            header("Location: usuario.php?id={$usuario['id']}&nombre={$usuario['nombre']}&apellido={$usuario['apellido']}");
+            header("Location: usuario.php?id={$usuario['id']}");
             exit(); // Asegurar que el script se detenga después de redirigir
         }
     } else {
