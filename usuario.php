@@ -78,13 +78,59 @@
             background-color: #f2f2f2;
         }
 
+    .container ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: justify; /* Alinea los elementos del menú al centro */
+        margin-top: 0px;
+    margin-bottom: 0px;
+    }
+
+    .container ul li {
+        display: inline-block; /* Coloca los elementos en línea */
+        margin-right: 10px; /* Espacio entre los elementos */
+    }
+
+    .container ul li a {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #333;
+        background-color: #f2f2f2;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    .container ul li a:hover {
+        background-color: #ccc;
+    }     
+
+    .encabezado {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        padding: 15px 20px; /* Ajustar el espacio alrededor del texto */
+        border-radius: 50%; /* Hacer que el contenedor sea circular */
+        background-color: #f2f2f2; /* Color de fondo del círculo */
+        font-weight: bold; /* Texto en negrita */
+        font-style: italic; /* Texto en cursiva */
+    }
+
+    .encabezado span {
+        color: #007bff; /* Color azul para resaltar los datos */
+        font-weight: bold; /* Texto en negrita para resaltar */
+        font-style: italic; /* Texto en cursiva */
+    }
+
     </style>
 </head>
 <body>
-    
-    <?php include 'encabezado.php'; ?>
-    
+
     <div class="container">
+        <?php include 'encabezado.php'; ?>
         <h2>Menú</h2>
         <ul>
             <li><a href="actualizar_datos.php?id=<?php echo $id; ?>">Actualizar datos</a></li>
