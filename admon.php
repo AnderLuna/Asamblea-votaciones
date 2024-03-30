@@ -54,12 +54,83 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: justify;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .container ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .container ul li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f2f2f2;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .container ul li a:hover {
+            background-color: #ccc;
+        }     
+
+        .encabezado {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+            border-radius: 50%;
+            background-color: #f2f2f2;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .encabezado span {
+            color: #007bff; 
+            font-weight: bold; 
+            font-style: italic;
+        }   
+        
+        .container {
+            border: ridge;
+            background-color: #fff;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }       
+
+        #sesion{
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 0px;  
+        }
+    
     </style>
 </head>
 <body>
 
-    <?php include 'encabezado.php'; ?>
-    
+    <div class="container">
+        <h2 id='sesion'>PANEL DE ADMINISTRADOR</h2>
+        <?php include 'encabezado.php'; ?>
+        <h2>Menú</h2>
+        <ul>
+            <li><a href="actualizar_datos.php?id=<?php echo $id; ?>">Actualizar datos</a></li>
+            <li><a href="votaciones.php?id=<?php echo $id; ?>">Votaciones</a></li>
+        </ul>
+    </div>
+
     <form action="registros.php" method="post">
         <h1>Registro de Usuarios</h1>
         <label for="id">ID:</label>
