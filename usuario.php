@@ -83,13 +83,12 @@
 <body>
     
     <?php include 'encabezado.php'; ?>
-
-    <!-- Menú -->
+    
     <div class="container">
         <h2>Menú</h2>
         <ul>
-            <li><a href="registrar_propuesta.php?id=<?php echo $id; ?>">Registrar Propuesta</a></li>
-            <li><a href="visualizacion_propuesta.php?id=<?php echo $id; ?>">Visualización de Propuestas</a></li>
+            <li><a href="actualizar_datos.php?id=<?php echo $id; ?>">Actualizar datos</a></li>
+            <li><a href="votaciones.php?id=<?php echo $id; ?>">Votaciones</a></li>
         </ul>
     </div>
 
