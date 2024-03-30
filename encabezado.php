@@ -18,7 +18,9 @@
         $nombre=$usuario['nombre'];
         $apellido=$usuario['apellido'];
 
-        echo "<h1>Bienvenido, $id - $nombre - $apellido</h1>";
+        echo "<div class='encabezado'>Bienvenido, <span>$id</span> - <span>$nombre</span> - <span>$apellido</span></div>";
+
+
 
     }     
 
