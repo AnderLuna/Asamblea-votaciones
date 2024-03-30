@@ -81,13 +81,18 @@
     </style>
 </head>
 <body>
-    <?php
-        // Recoger los datos del usuario de la URL
-        $id = $_GET['id'];
-        $nombre = $_GET['nombre'];
-        $apellido = $_GET['apellido'];
-    ?>
-    <h1>Bienvenido, <?php echo $id . ' - ' . $nombre . ' - ' . $apellido; ?> </h1>
+    
+    <?php include 'encabezado.php'; ?>
+
+    <!-- Menú -->
+    <div class="container">
+        <h2>Menú</h2>
+        <ul>
+            <li><a href="registrar_propuesta.php?id=<?php echo $id; ?>">Registrar Propuesta</a></li>
+            <li><a href="visualizacion_propuesta.php?id=<?php echo $id; ?>">Visualización de Propuestas</a></li>
+        </ul>
+    </div>
+
     <div class="container">
         <h2>Registro de Propuestas</h2>
         <form action="registrar_propuesta.php" method="post" class="form-group">
