@@ -6,7 +6,7 @@ require_once 'database.php';
 $conexion = Database::obtenerConexion();
 
 // Consulta SQL para obtener las propuestas
-$query = "SELECT idpropuesta, titulo, descripcion, votos FROM usuarios, propuestas WHERE usuarios.id = propuestas.idusuario and id = '$id'";
+$query = "SELECT * FROM `propuestas` WHERE 1";
 
 $resultado = $conexion->query($query);
 
