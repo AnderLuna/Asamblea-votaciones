@@ -159,5 +159,20 @@
 
         <input type="submit" value="Registrar Usuario">
     </form>
+
+    <script> // Script de JavaScript para que solo permita escribir numeros en los campos ID y edad.
+    document.addEventListener('DOMContentLoaded', function() {
+        var idInput = document.getElementById('id');
+        idInput.addEventListener('input', function(event) {
+            // Reemplaza cualquier carácter que no sea un número con una cadena vacía
+            this.value = this.value.replace(/\D/g, '');
+            });
+            var edadInput = document.getElementById('edad');
+            edadInput.addEventListener('input', function(event) {
+                // Reemplaza cualquier carácter que no sea un número con una cadena vacía
+                this.value = this.value.replace(/\D/g, '');
+            });
+        });
+    </script>
 </body>
 </html>
