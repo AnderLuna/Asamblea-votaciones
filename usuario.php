@@ -180,6 +180,20 @@
         </form>
     </div>
 
+    <script>
+        // script en JavaScript para validar que la actualizacion de propuesta solo acepte ID en formato número.
+        document.getElementById('ideditar').addEventListener('input', function(event) {
+            // Obtener el valor del campo de entrada
+            var valor = this.value;
+
+            // Reemplazar cualquier carácter que no sea un número con una cadena vacía
+            valor = valor.replace(/\D/g, '');
+
+            // Asignar el valor modificado de vuelta al campo de entrada
+            this.value = valor;
+        });
+    </script>
+
     <div class="container">
         <h2>Eliminación de Propuesta</h2>
         <form action="eliminar_propuesta.php" method="post" class="form-group">
