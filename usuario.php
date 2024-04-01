@@ -197,10 +197,25 @@
     <div class="container">
         <h2>Eliminación de Propuesta</h2>
         <form action="eliminar_propuesta.php" method="post" class="form-group">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <label for="id_eliminar">ID de la Propuesta a Eliminar:</label>
-            <input type="text" id="id_eliminar" name="id_eliminar" required>
+            <input type="text" id="ideliminar" name="ideliminar" required>
             <input type="submit" value="Eliminar Propuesta">
         </form>
     </div>
+
+    <script>
+        // script en JavaScript para validar que la actualizacion de propuesta solo acepte ID en formato número.
+        document.getElementById('ideliminar').addEventListener('input', function(event) {
+            // Obtener el valor del campo de entrada
+            var valor = this.value;
+
+            // Reemplazar cualquier carácter que no sea un número con una cadena vacía
+            valor = valor.replace(/\D/g, '');
+
+            // Asignar el valor modificado de vuelta al campo de entrada
+            this.value = valor;
+        });
+    </script>    
 </body>
 </html>
