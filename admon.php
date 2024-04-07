@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="styles/admon.css">   
-    <title>Panel de Administrador</title>        
+    <title>Panel de Administrador</title>    
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -125,9 +125,9 @@
         }
 
         .form-container form {
-            width: 45%; /* Ajusta el ancho según sea necesario */
+            width: 45%; 
         }        
-    </style>
+    </style> 
 </head>
 
 <body>
@@ -199,12 +199,13 @@
     <script> // Script de JavaScript para que solo permita escribir numeros en los campos ID y edad.
     document.addEventListener('DOMContentLoaded', function() {
         var idInput = document.getElementById('id');
+        var edadInput = document.getElementById('edad');
+        
         idInput.addEventListener('input', function(event) {
             // Reemplaza cualquier carácter que no sea un número con una cadena vacía
             this.value = this.value.replace(/\D/g, '');
         });
         
-        var edadInput = document.getElementById('edad');
         edadInput.addEventListener('input', function(event) {
             // Reemplaza cualquier carácter que no sea un número con una cadena vacía
             this.value = this.value.replace(/\D/g, '');
