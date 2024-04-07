@@ -10,7 +10,9 @@ CREATE TABLE usuarios (
 );
 
 CREATE TABLE asambleas (
-    idasamblea INT(5)PRIMARY KEY NOT NULL,
+    idasamblea INT PRIMARY KEY NOT NULL,
+    tema VARCHAR(100) NOT NULL,
+    fecha DATE NOT NULL,
     estado VARCHAR(100) NOT NULL
 );
 
