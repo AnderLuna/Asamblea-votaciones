@@ -9,12 +9,19 @@ CREATE TABLE usuarios (
     contraseña VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE asambleas (
+    idasamblea INT(5)PRIMARY KEY NOT NULL,
+    estado VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE propuestas (
     idpropuesta INT(5)PRIMARY KEY NOT NULL,
+    idasamblea INT(5) NOT NULL,
     titulo VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     idusuario VARCHAR(10) NOT NULL,
     votos INT NOT NULL,
+    FOREIGN KEY (idasamblea) REFERENCES asambleas(idasamblea),
     FOREIGN KEY (idusuario) REFERENCES usuarios(id)
 );
 
