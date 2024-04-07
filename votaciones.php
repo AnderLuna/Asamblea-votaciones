@@ -29,9 +29,17 @@
     <div class="container">
 
         <h2>Votaciones pasadas</h2>
-        <form>
+        <form class="form-group">
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Votos</th>
+            </tr>
+                <?php include 'visualizacion_votaciones_pasadas.php'; ?>
+        </table>
+        </form>
 
-    </form>
     </div>
 
     <div class="container">
