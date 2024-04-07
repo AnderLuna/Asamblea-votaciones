@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -111,7 +111,11 @@ s<!DOCTYPE html>
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 25px;
             margin-bottom: 30px;
-        }       
+        }
+
+        #table-asamblea {
+            margin-top: 30px;
+        }   
 
         #sesion {
             text-align: center;
@@ -126,7 +130,23 @@ s<!DOCTYPE html>
 
         .form-container form {
             width: 45%; 
-        }        
+        }   
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }             
     </style> 
 </head>
 
@@ -174,27 +194,29 @@ s<!DOCTYPE html>
 
         <form action="registros_asambleas.php" method="post" class="form-group">
             <h1>Registro de Asambleas</h1>
-            <label for="asamblea_id">ID de Asamblea:</label>
-            <input type="text" id="asamblea_id" name="asamblea_id" required>
-
-            <label for="fecha">Fecha:</label>
-            <input type="text" id="fecha" name="fecha" placeholder="YYYY-MM-DD" required>
-
-            <label for="hora">Hora:</label>
-            <input type="text" id="hora" name="hora" placeholder="HH:MM" required>
-
-            <label for="lugar">Lugar:</label>
-            <input type="text" id="lugar" name="lugar" required>
 
             <label for="tema">Tema:</label>
             <input type="text" id="tema" name="tema" required>
 
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+            <label for="fecha">Fecha:</label>
+            <input type="text" id="fecha" name="fecha" placeholder="YYYY-MM-DD" required>
 
             <input type="submit" value="Registrar Asamblea">
         </form>
     </div>        
+
+
+    <div class="container" id="table-asamblea">
+        <h2 id='sesion'>Asambleas Registradas</h2>
+        <table>
+            <tr>
+                <th>IdAsamblea</th>
+                <th>Tema</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+        </form>
+    </div>    
 
     <script> // Script de JavaScript para que solo permita escribir numeros en los campos ID y edad.
     document.addEventListener('DOMContentLoaded', function() {
