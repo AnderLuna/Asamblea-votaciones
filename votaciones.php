@@ -20,34 +20,84 @@
     </div>
 
     <div class="container">
-        <h2>Votaciones Actuales</h2>
-        <form>
-
+        <h2>Propuestas con mas votos de la asamblea actual</h2>
+        <form class="form-group">
+        <table>
+            <tr>
+                <th>IdAsamblea</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Votos</th>
+            </tr>
+        </table>
         </form>
     </div>
 
     <div class="container">
 
-        <h2>Votaciones pasadas</h2>
+        <h2>Propuestas Activas</h2>
         <form class="form-group">
         <table>
             <tr>
+                <th>IdAsamblea</th>
+                <th>IdPropuesta</th>
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Votos</th>
+                <th>Estado</th>
             </tr>
-                <?php include 'visualizacion_votaciones_pasadas.php'; ?>
         </table>
         </form>
 
     </div>
 
     <div class="container">
-        <h2>propuestas mas votadas</h2>
-        <form action="propuesta_mas_votos_pasadas.php" method="post" class="form-group">
+        <h2>Mis Votaciones</h2>
+        <form class="form-group">
+        <table>
+            <tr>
+                <th>IdAsamblea</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+            </tr>
+        </table>
         </form>
     </div>
 
+    <br><br><br><br><br><br><br>
+    <h2>RESULTADOS DE PROPUESTAS DE ASAMBLEAS FINALIZADAS</h2>
+
+    <div class="container">
+        <h2>Asambleas Pasadas</h2>
+        <form class="form-group">
+        <table>
+            <tr>
+                <th>IdAsamblea</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Votos</th>
+                <th>Estado</th>
+            </tr>
+        </table>
+        </form>
+    </div>    
+
+    <div class="container">
+        <h2>Propuestas Ganadoras</h2>
+        <form class="form-group">
+        <table>
+            <tr>
+                <th>IdAsamblea</th>
+                <th>IdPropuesta</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Votos</th>
+                <th>Estado</th>
+            </tr>
+        </table>
+        </form>
+    </div>    
   
 </body>
 </html>
