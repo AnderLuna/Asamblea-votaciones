@@ -15,6 +15,7 @@
         <ul>
             <li><a href="actualizar_datos.php?id=<?php echo $id; ?>">Actualizar datos</a></li>
             <li><a href="votaciones.php?id=<?php echo $id; ?>">Votaciones</a></li>
+
         </ul>
     </div>
 
