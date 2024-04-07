@@ -19,34 +19,59 @@
         </ul>
     </div>
 
-    <form action="registros.php" method="post">
-        <h1>Registro de Usuarios</h1>
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required>
+    <div class="from-container">
+        <form action="registros.php" method="post">
+            <h1>Registro de Usuarios</h1>
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
 
-        <label for="edad">Edad:</label>
-        <input type="text" id="edad" name="edad" required>
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" name="edad" required>
 
-        <label for="cargo">Cargo:</label>
-        <input type="text" id="cargo" name="cargo" required>
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required>
 
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
 
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" name="username" required>
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
 
-        <input type="submit" value="Registrar Usuario">
-    </form>
+            <input type="submit" value="Registrar Usuario">
+        </form>
+
+        <form action="registros_asamblea.php" method="post">
+            <h1>Registro de Asambleas</h1>
+            <label for="asamblea_id">ID de Asamblea:</label>
+            <input type="text" id="asamblea_id" name="asamblea_id" required>
+
+            <label for="fecha">Fecha:</label>
+            <input type="text" id="fecha" name="fecha" placeholder="YYYY-MM-DD" required>
+
+            <label for="hora">Hora:</label>
+            <input type="text" id="hora" name="hora" placeholder="HH:MM" required>
+
+            <label for="lugar">Lugar:</label>
+            <input type="text" id="lugar" name="lugar" required>
+
+            <label for="tema">Tema:</label>
+            <input type="text" id="tema" name="tema" required>
+
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" cols="50" required></textarea>
+
+            <input type="submit" value="Registrar Asamblea">
+        </form>
+    </div>        
 
     <script> // Script de JavaScript para que solo permita escribir numeros en los campos ID y edad.
     document.addEventListener('DOMContentLoaded', function() {
@@ -62,5 +87,7 @@
             });
         });
     </script>
+
+
 </body>
 </html>
