@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="styles/admon.css">    
+    <link rel="stylesheet" href="styles/admin.css">    
     <title>Panel de Administrador</title>    
 </head>
 
@@ -61,6 +61,7 @@
             <input type="submit" value="Registrar Asamblea">
         </form>
     </div>        
+
 
     <div class="container" id="table-asamblea">
         <h2 id='sesion'>Asambleas Registradas</h2>
