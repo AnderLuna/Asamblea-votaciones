@@ -20,6 +20,7 @@ form {
 }
 
 label {
+    margin-top: 10px;    
     margin-bottom: 8px;
     display: block;
 }
@@ -31,7 +32,10 @@ table {
 }
 
 #table-asamblea {
-    margin-top: 30px;
+    height: 100%;
+    width: 100%;
+    margin-right: 100px;
+    margin-left: 100px;
 }   
 
 th, td {
@@ -64,6 +68,10 @@ th {
     cursor: pointer;
     width: 100%;
 }
+
+#btn-reg-us{
+    margin-top: 50px;    
+} 
 
 .form-group input[type="submit"]:hover {
     background-color: #0056b3;
@@ -133,10 +141,22 @@ th {
 }
 
 .form-container {
+    width: 1000px;    
+    margin-right: 100px;
+    margin-left: 100px;    
     display: flex;
     margin-top: 30px;
 }
 
 .form-container form {
-    width: 45%; 
-}                
+    margin-bottom: 30px;    
+    margin-right: 50px;
+    width: 100%; 
+}   
+
+.form-vert {
+    height: 1000px;    
+    width: 1000px;    
+    display: flex;
+    flex-direction: column;
+}               
