@@ -46,25 +46,49 @@
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
 
-            <input type="submit" value="Registrar Usuario">
+            <input id="btn-reg-us" type="submit" value="Registrar Usuario">
         </form>
 
-        <form action="registros_asambleas.php" method="post" class="form-group">
-            <h1>Registro de Asambleas</h1>
+        <div class="form-vert">
+            <form action="registros_asambleas.php" method="post" class="form-group">
+                <h1>Registro de Asambleas</h1>
 
-            <label for="tema">Tema:</label>
-            <input type="text" id="tema" name="tema" required>
+                <label for="tema">Tema:</label>
+                <input type="text" id="tema" name="tema" required>
 
-            <label for="fecha">Fecha:</label>
-            <input type="text" id="fecha" name="fecha" placeholder="YYYY-MM-DD" required>
+                <label for="fecha">Fecha:</label>
+                <input type="text" id="fecha" name="fecha" placeholder="YYYY-MM-DD" required>
 
-            <input type="submit" value="Registrar Asamblea">
-        </form>
+                <input type="submit" value="Registrar Asamblea">
+            </form>
+
+            <form action="eliminar_asambleas.php" method="post" class="form-group">
+                <h1>Eliminacion de Asambleas</h1>
+
+                <label for="idasamblea">ID Asamblea:</label>
+                <input type="text" id="idasamblea" name="idasamblea" required>
+
+                <input type="submit" value="Borrar Asamblea">
+            </form>
+
+            <form action="actualizar_asambleas.php" method="post" class="form-group">
+                <h1>Eliminacion de Asambleas</h1>
+
+                <label for="idasamblea">ID Asamblea:</label>
+                <input type="text" id="idasamblea" name="idasamblea" required>
+
+                <label for="estado">Estado (Activa / Cerrada):</label>
+                <input type="text" id="estado" name="estado" required>                
+
+                <input type="submit" value="Actualizar Asamblea">
+            </form>                 
+        </div>     
     </div>        
 
 
-    <div class="container" id="table-asamblea">
-        <h2 id='sesion'>Asambleas Registradas</h2>
+    <div class="form-container" id="table-asamblea">
+        <form class="form-group">
+        <h2>Asambleas Registradas</h2>
         <table>
             <tr>
                 <th>IdAsamblea</th>
