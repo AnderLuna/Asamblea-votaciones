@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-container">
-        <form action="registros.php" method="post" class="form-group">
+        <form id="form-reg" action="registros.php" method="post" class="form-group">
             <h1>Registro de Usuarios</h1>
             <label for="id">ID:</label>
             <input type="text" id="id" name="id" required>
