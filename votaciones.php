@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/usuario.css">
     <title>Panel de Votaciones</title>
+    
 </head>
 <body>
 
