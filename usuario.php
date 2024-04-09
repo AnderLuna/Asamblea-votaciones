@@ -122,6 +122,13 @@
         </ul>
     </div>
 
+
+    <div class="container">        
+        <h2 style="text-align: center;">Asamblea Actual</h2>
+        <?php include 'asamblea_actual.php'; ?>
+    </div>
+
+
     <div class="container">
         <h2>Registro de Propuestas</h2>
         <form action="registrar_propuesta.php" method="post" class="form-group">
