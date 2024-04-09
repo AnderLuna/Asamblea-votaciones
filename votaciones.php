@@ -107,7 +107,14 @@
         .container ul li a:hover {
             background-color: #ccc;
         }  
-                 
+
+        #separador{
+            font-size: 50px;
+            font-weight: bolder;
+            border-bottom: solid;
+            color: royalblue;
+        }  
+
     </style>    
 </head>
 <body>
@@ -168,8 +175,8 @@
         </form>
     </div>
 
-    <br><br><br><br><br><br><br>
-    <div class="encabezado"><span>RESULTADOS DE PROPUESTAS DE ASAMBLEAS FINALIZADAS</span></div>
+    <br><br><br><br>
+    <div id="separador" class="encabezado">RESULTADOS DE PROPUESTAS DE ASAMBLEAS FINALIZADAS</div>
 
     <div class="container">
         <h2>Asambleas Pasadas</h2>
