@@ -12,6 +12,8 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;   
+            margin-right: 100px;
+            margin-left: 100px;
         }
 
         h1 {
@@ -19,9 +21,7 @@
             margin-bottom: 20px;
         }
 
-        .container {
-            margin-right: 100px;
-            margin-left: 100px;     
+        .container {    
             border: ridge;
             background-color: #fff;
             border-radius: 50px;
