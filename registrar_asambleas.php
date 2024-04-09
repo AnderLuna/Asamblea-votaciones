@@ -12,7 +12,7 @@ if (!empty($_POST["tema"]) && !empty($_POST["fecha"])) {
     $fecha_format = date('Y-m-d', strtotime($fecha));
 
     // Consulta SQL para insertar la propuesta en la base de datos
-    $query = "INSERT INTO asambleas (idasamblea, tema, fecha, estado) VALUES ('$idasamblea', '$tema', '$fecha_format', 'cerrada')";
+    $query = "INSERT INTO asambleas (idasamblea, tema, fecha, estado) VALUES ('$idasamblea', '$tema', '$fecha_format', 'nueva')";
 
     // Ejecutar la consulta SQL y manejar los errores
     if ($conexion->query($query) === TRUE) {
