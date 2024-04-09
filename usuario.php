@@ -124,7 +124,6 @@
 
 
     <div class="container">        
-        <h2 style="text-align: center;">Asamblea Actual</h2>
         <?php include 'asamblea_actual.php'; ?>
     </div>
 
@@ -133,6 +132,7 @@
         <h2>Registro de Propuestas</h2>
         <form action="registrar_propuesta.php" method="post" class="form-group">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="idasamblea" value="<?php echo $idasamblea; ?>">
             <label for="titulo">Título de la Propuesta:</label>
             <input type="text" id="titulo" name="titulo" required>
             <label for="descripcion">Descripción de la Propuesta:</label>
@@ -147,6 +147,7 @@
         <form class="form-group">
         <table>
             <tr>
+                <th>IdAsamblea</th>
                 <th>IdPropuesta</th>
                 <th>Título</th>
                 <th>Descripción</th>
