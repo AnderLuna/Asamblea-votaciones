@@ -154,6 +154,21 @@
         #form-reg{
             margin-right: 50px;
         }
+
+        #button-update{
+            display: flex;
+        }
+
+        #btn-1{
+            margin-right: 10px;
+        }
+
+        #btn-2{
+            margin-left: 10px;
+        }        
+
+
+
     </style>        
 </head>
 
@@ -227,10 +242,10 @@
                 <label for="idasamblea">ID Asamblea:</label>
                 <input type="text" id="idasamblea" name="idasamblea" required>
 
-                <label for="estado">Estado (Activa / Cerrada):</label>
-                <input type="text" id="estado" name="estado" required>                
-
-                <input type="submit" value="Actualizar Asamblea">
+                <div id="button-update">
+                    <input id="btn-1" type="submit" value="Activar">
+                    <input id="btn-2" type="submit" value="Cerrar">
+                </div>
             </form>                 
         </div>     
     </div>        
