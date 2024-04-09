@@ -57,8 +57,7 @@
             background-color: #f2f2f2;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="password"],
+        .form-group input,
         .form-group textarea {
             padding: 10px;
             margin-bottom: 20px;
@@ -210,14 +209,14 @@
         </form>
 
         <div class="form-vert">
-            <form action="registros_asambleas.php" method="post" class="form-group">
+            <form action="registrar_asambleas.php" method="post" class="form-group">
                 <h1>Registro de Asambleas</h1>
 
                 <label for="tema">Tema:</label>
                 <input type="text" id="tema" name="tema" required>
 
                 <label for="fecha">Fecha:</label>
-                <input type="text" id="fecha" name="fecha" placeholder="YYYY-MM-DD" required>
+                <input type="date" id="fecha" name="fecha" required>
 
                 <input type="submit" value="Registrar Asamblea">
             </form>
@@ -232,7 +231,7 @@
             </form>
 
             <form action="actualizar_asambleas.php" method="post" class="form-group">
-                <h1>Eliminacion de Asambleas</h1>
+                <h1>Actualizar estado de asamblea</h1>
 
                 <label for="idasamblea">ID Asamblea:</label>
                 <input type="text" id="idasamblea" name="idasamblea" required>
@@ -256,6 +255,7 @@
                 <th>Fecha</th>
                 <th>Estado</th>
             </tr>
+                <?php include 'visualizacion_asambleas_admin.php'; ?>
         </form>
     </div>    
 
