@@ -107,7 +107,7 @@
         .container ul li a:hover {
             background-color: #ccc;
         }        
-    </style>  
+    </style>
 </head>
 
 <body>
