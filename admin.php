@@ -221,6 +221,18 @@
                 <input type="submit" value="Registrar Asamblea">
             </form>
 
+            <form action="actualizar_asambleas_admin.php" method="post" class="form-group">
+                <h1>Actualizar estado de asamblea</h1>
+
+                <label for="idasamblea">ID Asamblea:</label>
+                <input type="text" id="idasamblea" name="idasamblea" required>
+
+                <div id="button-update">
+                    <input id="btn-1" type="submit" name="accion" value="Activar">
+                    <input id="btn-2" type="submit" name="accion" value="Cerrar">
+                </div>
+            </form>
+
             <form action="eliminar_asambleas.php" method="post" class="form-group">
                 <h1>Eliminacion de Asambleas</h1>
 
@@ -230,17 +242,6 @@
                 <input type="submit" value="Borrar Asamblea">
             </form>
 
-            <form action="actualizar_asambleas.php" method="post" class="form-group">
-                <h1>Actualizar estado de asamblea</h1>
-
-                <label for="idasamblea">ID Asamblea:</label>
-                <input type="text" id="idasamblea" name="idasamblea" required>
-
-                <div id="button-update">
-                    <input id="btn-1" type="submit" value="Activar">
-                    <input id="btn-2" type="submit" value="Cerrar">
-                </div>
-            </form>                 
         </div>     
     </div>        
 
