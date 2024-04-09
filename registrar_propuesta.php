@@ -18,7 +18,7 @@ if (!empty($_POST["titulo"]) && !empty($_POST["descripcion"])) {
         $idasamblea = $data['idasamblea'];
 
         // Consulta SQL para insertar la propuesta en la base de datos
-        $query = "INSERT INTO propuestas (idpropuesta, titulo, descripcion, idusuario, votos) VALUES ('$IDPropuesta', '$titulo', '$descripcion', '$id', 0)";
+        $query = "INSERT INTO propuestas (idpropuesta, idasamblea, titulo, descripcion, idusuario, votos) VALUES ('$IDPropuesta', '$idasamblea', '$titulo', '$descripcion', '$id', 0)";
 
         // Ejecutar la consulta SQL y manejar los errores
         if ($conexion->query($query) === TRUE) {
