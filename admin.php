@@ -12,6 +12,8 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+            margin-right: 100px;
+            margin-left: 100px;            
         }
 
         h1 {
@@ -43,8 +45,6 @@
 
         #table-asamblea {
             height: 100%;
-            margin-right: 100px;
-            margin-left: 100px;
         }   
 
         th, td {
@@ -78,10 +78,6 @@
             width: 100%;
         }
 
-        #btn-reg-us{
-            margin-top: 50px;    
-        } 
-
         .form-group input[type="submit"]:hover {
             background-color: #0056b3;
         }
@@ -114,8 +110,6 @@
         }     
 
         .container {
-            margin-right: 100px;
-            margin-left: 100px;
             border: ridge;
             background-color: #fff;
             border-radius: 50px;
@@ -133,9 +127,7 @@
 
         .form-container {
             margin-bottom: 30px;    
-            width: 1000px;    
-            margin-right: 100px;
-            margin-left: 100px;    
+            width: 100%;    
             display: flex;
             margin-top: 30px;
         }
@@ -146,8 +138,8 @@
         }   
 
         .form-vert {
-            height: 1000px;    
-            width: 1000px;    
+            height: 100%;    
+            width: 100%;    
             display: flex;
             flex-direction: column;
         }               
