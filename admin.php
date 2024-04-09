@@ -20,11 +20,12 @@
         }
 
         form {
+            height: 100%;            
             background-color: #fff;
             border-radius: 30px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 400px;
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -152,10 +153,12 @@
         }               
 
         #form-reg{
+            height: initial;
             margin-right: 50px;
         }
 
         #button-update{
+            margin-top: 30px;
             display: flex;
         }
 
