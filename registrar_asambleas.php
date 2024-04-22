@@ -16,14 +16,32 @@ if (!empty($_POST["tema"]) && !empty($_POST["fecha"])) {
 
     // Ejecutar la consulta SQL y manejar los errores
     if ($conexion->query($query) === TRUE) {
-        echo "Asamblea registrada correctamente.";
+        
+        ?>
+        <script>
+            alert("Asamblea registrada correctamente.");
+            window.history.back();
+        </script>
+        <?php        
     } else {
-        echo "Error al registrar la asamblea: " . $conexion->error;
+        
+        ?>
+        <script>
+            alert("Error al registrar la asamblea: " . $conexion->error);
+            window.history.back();
+        </script>
+        <?php        
     }
 
 } else {
     // Si hay campos vacíos, mostrar un mensaje de error
-    echo "Por favor, completa todos los campos del formulario.";
+
+    ?>
+    <script>
+        alert("Por favor, completa todos los campos del formulario.");
+        window.history.back();
+    </script>
+    <?php    
 }
 
 // Función para generar un número aleatorio de 5 dígitos que no exista en la base de datos
