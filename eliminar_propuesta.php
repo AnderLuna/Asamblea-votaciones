@@ -22,15 +22,39 @@ function validarVotos($conexion, $id, $idpropuesta){
             $query = "DELETE FROM propuestas WHERE idpropuesta= '$idpropuesta' and idusuario='$id' and votos= 0";
             
             if ($conexion->query($query) === TRUE) {
-                echo "Propuesta eliminada correctamente.";
+                
+                ?>
+                <script>
+                    alert("Propuesta eliminada correctamente.");
+                    window.history.back();
+                </script>
+                <?php                
             } else {
-                echo "Error al eliminar Propuesta: " . $conexion->error;
+                
+                ?>
+                <script>
+                    alert("Error al eliminar Propuesta: " . $conexion->error);
+                    window.history.back();
+                </script>
+                <?php                
             }
         } else {
-            echo "No se puede eliminar la propuesta ya que tiene: " . $votos . " votos";
+            
+            ?>
+            <script>
+                alert("No se puede eliminar la propuesta ya que tiene: " . $votos . " votos");
+                window.history.back();
+            </script>
+            <?php            
         }
     } else {
-        echo "No se encontró ninguna propuesta con el ID especificado.";
+        
+        ?>
+        <script>
+            alert("No se encontró ninguna propuesta con el ID especificado.");
+            window.history.back();
+        </script>
+        <?php        
     }
 }
 
