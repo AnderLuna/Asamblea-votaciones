@@ -10,7 +10,9 @@ $idasamblea = $_POST['idasamblea'];
 
 // Realizar una consulta JOIN para obtener los datos de la propuesta, la asamblea y los votos
 $sql = "SELECT * FROM propuestas WHERE idpropuesta='$idpropuesta' and idusuario='$id'";
+
 $resultado = $conexion->query($sql);
+
 if($resultado->num_rows > 0){
     ?>
     <script>
@@ -21,7 +23,7 @@ if($resultado->num_rows > 0){
     </script>
     <?php    
 }else{
-    $query = "SELECT * FROM propuestas, votaciones WHERE propuestas.idpropuesta = votaciones.idpropuesta and propuestas.idpropuesta='$idpropuesta' and idasamblea = '$idasamblea' and idvotante = '$id'";
+    $query = "SELECT * FROM propuestas, votaciones WHERE propuestas.idpropuesta = votaciones.idpropuesta and idasamblea = '$idasamblea' and idvotante = '$id'";
 
     $resultado = $conexion->query($query);
 
