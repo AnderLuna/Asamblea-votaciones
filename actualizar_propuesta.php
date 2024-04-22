@@ -24,15 +24,39 @@ function validarVotos($conexion, $id, $idpropuesta, $titulo, $descripcion){
             $query = "UPDATE propuestas SET titulo='$titulo', descripcion='$descripcion' WHERE idpropuesta='$idpropuesta' AND idusuario='$id'";
             
             if ($conexion->query($query) === TRUE) {
-                echo "Propuesta actualizada correctamente.";
+                
+                ?>
+                <script>
+                    alert("Propuesta actualizada correctamente.");
+                    window.history.back();
+                </script>
+                <?php                
             } else {
-                echo "Error al actualizar Propuesta: " . $conexion->error;
+                
+                ?>
+                <script>
+                    alert("Error al actualizar Propuesta: " . $conexion->error);
+                    window.history.back();
+                </script>
+                <?php                
             }
         } else {
-            echo "No se puede actualizar la propuesta ya que tiene: " . $votos . " votos";
+            
+            ?>
+            <script>
+                alert("No se puede actualizar la propuesta ya que tiene: " . $votos . " votos");
+                window.history.back();
+            </script>
+            <?php            
         }
     } else {
-        echo "No se encontró ninguna propuesta con el ID especificado.";
+        
+        ?>
+        <script>
+            alert("No se encontró ninguna propuesta con el ID especificado.");
+            window.history.back();
+        </script>
+        <?php        
     }
 }
 
