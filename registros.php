@@ -24,7 +24,13 @@ if (validarID($id) && validarCampos($nombre, $apellido, $cargo) && validarEmail(
 
     if ($resultado_verificar->num_rows > 0) {
         // Si el ID ya existe, mostrar un mensaje de error y terminar la ejecución
-        echo " USUARIO NO REGISTRADO. El ID $id YA está en uso, por favor ingrese un ID válido.";
+        
+        ?>
+        <script>
+            alert(" USUARIO NO REGISTRADO. El ID $id YA está en uso, por favor ingrese un ID válido.");
+            window.history.back();
+        </script>
+        <?php        
         exit(); // Terminar la ejecución del script
     }
 
@@ -34,7 +40,13 @@ if (validarID($id) && validarCampos($nombre, $apellido, $cargo) && validarEmail(
 
     if ($resultado_verificar_username->num_rows > 0) {
         // Si el usuario ya existe, mostrar un mensaje de error y terminar la ejecución
-        echo "El nombre de usuario '$username' ya está en uso, por favor elige otro.";
+        
+        ?>
+        <script>
+            alert("El nombre de usuario '$username' ya está en uso, por favor elige otro.");
+            window.history.back();
+        </script>
+        <?php        
         exit();
     }
 
@@ -43,9 +55,21 @@ if (validarID($id) && validarCampos($nombre, $apellido, $cargo) && validarEmail(
 
     // Ejecutar la consulta
     if ($conexion->query($query) === TRUE) {
-        echo "Usuario registrado correctamente.";
+        
+        ?>
+        <script>
+            alert("Usuario registrado correctamente.");
+            window.history.back();
+        </script>
+        <?php        
     } else {
-        echo "Error al registrar usuario: " . $conexion->error;
+        
+        ?>
+        <script>
+            alert("Error al registrar usuario: " . $conexion->error);
+            window.history.back();
+        </script>
+        <?php        
     }
 
     // Cerrar la conexión a la base de datos
@@ -57,7 +81,13 @@ function validarID($ID) {
     if(preg_match('/^[0-9]{10}$/', $ID)) {
         return true; // La cadena tiene exactamente 10 números
     } else {
-        echo "El ID debe ser una cadena de 10 dígitos.";
+        
+        ?>
+        <script>
+            alert("El ID debe ser una cadena de 10 dígitos.");
+            window.history.back();
+        </script>
+        <?php        
         return false; // La cadena no tiene exactamente 10 números
     }
 }
@@ -65,7 +95,13 @@ function validarID($ID) {
 function validarCampos($nombre, $apellido, $cargo) {
     // Verificar si alguno de los campos está en blanco
     if (empty($nombre) || empty($apellido) || empty($cargo)) {
-        echo "Los campos: nombre, apellido y cargo NO pueden estar vacios.";
+        
+        ?>
+        <script>
+            alert("Los campos: nombre, apellido y cargo NO pueden estar vacios.");
+            window.history.back();
+        </script>
+        <?php        
         return false;
     } else {
         return true;
@@ -76,20 +112,38 @@ function validarEmail($correo) {
 
     // Verificar si el correo está vacío 
     if (empty($correo)) {
-        echo "El correo electrónico está vacío.";
+        
+        ?>
+        <script>
+            alert("El correo electrónico está vacío.");
+            window.history.back();
+        </script>
+        <?php        
         return false;
     }
     // Verificar si el formato del correo electrónico es válido
     if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         // Verificar si el correo electrónico contiene caracteres especiales
         if (preg_match('/[\'^£$%&*()}{#~?><>,|=+¬]/', $correo)) {
-            echo "El correo electrónico no puede contener caracteres especiales.";
+            
+            ?>
+            <script>
+                alert("El correo electrónico no puede contener caracteres especiales.");
+                window.history.back();
+            </script>
+            <?php            
             return false;
         } else {
             return true; // El correo electrónico es válido y no contiene caracteres especiales
         }
     } else {
-        echo  "El formato del correo electrónico es inválido.";
+        
+        ?>
+        <script>
+            alert( "El formato del correo electrónico es inválido.");
+            window.history.back();
+        </script>
+        <?php        
         return false;
     }
 }
