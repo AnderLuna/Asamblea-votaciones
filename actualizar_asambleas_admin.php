@@ -19,25 +19,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $query = "UPDATE asambleas SET estado='activa' WHERE idasamblea='$idasamblea'";
                 
                 if ($conexion->query($query) === TRUE) {
-                    echo "Asamblea activada correctamente.";
+                    ?>
+                    <script>
+                        alert("Asamblea activada correctamente.");
+                        window.history.back();
+                    </script>
+                    <?php
+
                 } else {
-                    echo "Error al activar la asamblea: " . $conexion->error;
+                    ?>
+                    <script>
+                        alert("Error al activar la asamblea: " . $conexion->error);
+                        window.history.back();
+                    </script>
+                    <?php
                 }
             } else {
-                echo "Ya existe una asamblea activa. No se puede activar otra.";
+                ?>
+                <script>
+                    alert("Ya existe una asamblea activa. No se puede activar otra.");
+                    window.history.back();
+                </script>
+                <?php
             }
         } elseif ($accion === "Cerrar") {
             // Si la acción es cerrar, simplemente se actualiza el estado
             $query = "UPDATE asambleas SET estado='cerrada' WHERE idasamblea='$idasamblea'";
             
             if ($conexion->query($query) === TRUE) {
-                echo "Asamblea cerrada correctamente.";
+                ?>
+                <script>
+                    alert("Asamblea cerrada correctamente.");
+                    window.history.back();
+                </script>
+                <?php
             } else {
-                echo "Error al cerrar la asamblea: " . $conexion->error;
+                ?>
+                <script>
+                    alert("Error al cerrar la asamblea: " . $conexion->error);
+                    window.history.back();
+                </script>
+                <?php
             }
         } else {
             // Si la acción no es válida
-            echo "Acción no válida.";
+            ?>
+            <script>
+                alert("Acción no válida.");
+                window.history.back();
+            </script>
+            <?php
         }
     }
 
