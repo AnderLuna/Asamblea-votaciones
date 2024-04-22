@@ -13,14 +13,32 @@ function validarAsamblea($conexion, $idasamblea){
     $resultado = $conexion->query($sql);
 
     if ($resultado->num_rows > 0) {
-        echo "No se puede eliminar la asamblea porque ya tiene propuestas registradas.";
+        
+        ?>
+        <script>
+            alert("No se puede eliminar la asamblea porque ya tiene propuestas registradas.");
+            window.history.back();
+        </script>
+        <?php        
     } else {
         $query = "DELETE FROM asambleas WHERE idasamblea = '$idasamblea'";
         
         if ($conexion->query($query) === TRUE) {
-            echo "asamblea eliminada correctamente.";
+            
+            ?>
+            <script>
+                alert("asamblea eliminada correctamente.");
+                window.history.back();
+            </script>
+            <?php            
         } else {
-            echo "Error al eliminar asamblea: " . $conexion->error;
+            
+            ?>
+            <script>
+                alert("Error al eliminar asamblea: " . $conexion->error);
+                window.history.back();
+            </script>
+            <?php            
         }        
     }
 }
