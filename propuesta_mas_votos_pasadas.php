@@ -7,17 +7,9 @@ $conexion = Database::obtenerConexion();
 
 // Consulta SQL para obtener la propuesta más votada por asamblea en estado "cerrada"
 $query = "
-    SELECT p.idasamblea, p.idpropuesta, p.titulo, p.descripcion, p.votos, p.estado
-    FROM propuestas p
-    INNER JOIN (
-        SELECT idasamblea, MAX(votos) AS max_votos
-        FROM propuestas
-        WHERE estado = 'cerrada'
-        GROUP BY idasamblea
-    ) AS max_votos_per_asamblea
-    ON p.idasamblea = max_votos_per_asamblea.idasamblea
-    AND p.votos = max_votos_per_asamblea.max_votos
-    WHERE p.estado = 'cerrada'
+    SELECT p.idasamblea, p.idpropuesta, p.titulo, p.descripcion, p.votos, a.estado 
+FROM propuestas p JOIN asambleas a ON p.idasamblea=a.idasamblea
+WHERE a.estado='cerrada' AND p.votos=(SELECT MAX(votos) FROM propuestas WHERE idasamblea=p.idasamblea) 
 ";
 
 $resultado = $conexion->query($query);
