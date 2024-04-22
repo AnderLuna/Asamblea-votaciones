@@ -25,7 +25,9 @@ if ($resultado->num_rows > 0) {
     <?php
 } else {
     $sql = "INSERT INTO votaciones (idpropuesta, idvotante) VALUES ('$idpropuesta', '$id')";
-    if ($conexion->query($sql) === TRUE) {
+
+    $query = "UPDATE propuestas SET votos=votos+1 WHERE idpropuesta='$idpropuesta'";
+    if ($conexion->query($sql) === TRUE and $conexion->query($query) === TRUE) {
         ?>
         <script>
             // JavaScript para mostrar el mensaje de éxito en una ventana emergente
