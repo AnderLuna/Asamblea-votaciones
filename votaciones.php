@@ -191,12 +191,12 @@
         <table>
             <tr>
                 <th>IdAsamblea</th>
-                <th>Título</th>
-                <th>Descripción</th>
+                <th>Tema</th>
+                <th>Fecha</th>
                 <th>Estado</th>
-                <th>Votos</th>
+                <th>Total Votos</th>
             </tr>
-            <?php include 'visualizacion_votaciones_pasadas.php'; ?>
+            <?php include 'visualizacion_asambleas_pasadas.php'; ?>
         </table>
         </form>
     </div>    
