@@ -129,6 +129,10 @@
         </ul>
     </div>
 
+    <div class="container">        
+        <?php include 'asamblea_actual.php'; ?>
+    </div>    
+
     <div class="container">
         <h2>Propuestas con mas votos de la asamblea actual</h2>
         <form class="form-group">
@@ -139,6 +143,7 @@
                 <th>Descripción</th>
                 <th>Votos</th>
             </tr>
+                <?php include 'propuestas_mas_votos.php'; ?>
         </table>
         </form>
     </div>
