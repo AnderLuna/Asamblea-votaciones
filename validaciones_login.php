@@ -21,7 +21,13 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
     // Verificar si se encontró algún resultado
     if ($resultado->num_rows > 0) {
         // El usuario y la contraseña son válidos
-        echo "Login exitoso. Bienvenido, $username!";
+        
+        ?>
+        <script>
+            alert("Login exitoso. Bienvenido, $username!");
+            window.history.back();
+        </script>
+        <?php        
         
         $usuario = $resultado->fetch_assoc();
         
@@ -36,13 +42,25 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         }
     } else {
         // El usuario o la contraseña son incorrectos
-        echo "Usuario o contraseña incorrectos.";
+        
+        ?>
+        <script>
+            alert("Usuario o contraseña incorrectos.");
+            window.history.back();
+        </script>
+        <?php        
     }
 
     // Cerrar la conexión a la base de datos
     $conexion->close();
 } else {
     // Si los datos están vacíos, mostrar un mensaje de error
-    echo "Por favor, ingresa tanto el nombre de usuario como la contraseña.";
+    
+    ?>
+    <script>
+        alert("Por favor, ingresa tanto el nombre de usuario como la contraseña.");
+        window.history.back();
+    </script>
+    <?php    
 }
 ?>
