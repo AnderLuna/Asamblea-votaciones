@@ -22,20 +22,44 @@ if (!empty($_POST["titulo"]) && !empty($_POST["descripcion"])) {
 
         // Ejecutar la consulta SQL y manejar los errores
         if ($conexion->query($query) === TRUE) {
-            echo "Propuesta registrada correctamente.";
+            
+            ?>
+            <script>
+                alert("Propuesta registrada correctamente.");
+                window.history.back();
+            </script>
+            <?php            
         } else {
-            echo "Error al registrar la propuesta: " . $conexion->error;
+            
+            ?>
+            <script>
+                alert("Error al registrar la propuesta: " . $conexion->error);
+                window.history.back();
+            </script>
+            <?php            
         }
 
         // Cerrar la conexión a la base de datos después de usarla
         $conexion->close();        
     }else{
-        echo "Aun no hay asambleas Activas";
+        
+        ?>
+        <script>
+            alert("Aun no hay asambleas Activas");
+            window.history.back();
+        </script>
+        <?php        
     }
 
 } else {
     // Si hay campos vacíos, mostrar un mensaje de error
-    echo "Por favor, completa todos los campos del formulario.";
+    
+    ?>
+    <script>
+        alert("Por favor, completa todos los campos del formulario.");
+        window.history.back();
+    </script>
+    <?php    
 }
 
 // Función para generar un número aleatorio de 5 dígitos que no exista en la base de datos
