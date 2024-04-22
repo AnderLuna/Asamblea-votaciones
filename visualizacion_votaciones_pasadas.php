@@ -2,11 +2,17 @@
 // Aquí se debería incluir el archivo de conexión a la base de datos
 require_once 'database.php';
 
-// Obtener los datos de las propuestas desde la base de datos
+// Obtener la conexión a la base de datos
 $conexion = Database::obtenerConexion();
 
-// Consulta SQL para obtener las propuestas
-$query = "SELECT titulo, descripcion, votos FROM propuestas" ;
+// Consulta SQL para obtener el total de votos por asamblea
+$query = "
+    SELECT a.idasamblea, a.tema, a.fecha, a.estado, SUM(p.votos) AS total_votos
+    FROM asambleas a
+    LEFT JOIN propuestas p ON a.idasamblea = p.idasamblea
+    WHERE a.estado != 'activa'
+    GROUP BY a.idasamblea
+";
 
 $resultado = $conexion->query($query);
 
@@ -15,17 +21,18 @@ if ($resultado->num_rows > 0) {
     // Mostrar los datos en la tabla
     while ($fila = $resultado->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $fila['titulo'] . "</td>";
-        echo "<td>" . $fila['descripcion'] . "</td>";
-        echo "<td>" . $fila['votos'] . "</td>";
+        echo "<td>" . $fila['idasamblea'] . "</td>";
+        echo "<td>" . $fila['tema'] . "</td>";
+        echo "<td>" . $fila['fecha'] . "</td>";
+        echo "<td>" . $fila['estado'] . "</td>";
+        echo "<td>" . $fila['total_votos'] . "</td>";
         echo "</tr>";
     }
 } else {
-    // Si no se encontraron propuestas, mostrar un mensaje en la primera fila de la tabla
-    echo "<tr><td colspan='5'>No se encontraron propuestas.</td></tr>";
+    // Si no se encontraron asambleas disponibles, mostrar un mensaje en la tabla
+    echo "<tr><td colspan='5'>No se encontraron asambleas o propuestas.</td></tr>";
 }
 
-
 // Cerrar la conexión a la base de datos
-//$conexion->close();
+$conexion->close();
 ?>
