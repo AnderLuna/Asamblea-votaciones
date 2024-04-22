@@ -167,14 +167,17 @@
 
     <div class="container">
         <h2>Mis Votaciones</h2>
-        <form class="form-group">
+        <form action="eliminar_voto.php?id=<?php echo $id; ?>" method="post"class="form-group">
         <table>
             <tr>
                 <th>IdAsamblea</th>
+                <th>IdPropuesta</th>
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Estado</th>
+                <th>Accion</th>
             </tr>
+                <?php include 'mis_votaciones.php'; ?>
         </table>
         </form>
     </div>
