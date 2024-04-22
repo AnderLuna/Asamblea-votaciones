@@ -73,6 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     ActualizarEstadoAsamblea($conexion, $idasamblea, $accion);
-    $conexion->close();
+    //$conexion->close();
 }
 ?>
