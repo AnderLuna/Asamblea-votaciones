@@ -15,11 +15,25 @@ $resultado = $conexion->query($query);
 
 // Verificar si se encontraron resultados
 if ($resultado->num_rows > 0) {
-    echo "Usted ya voto en la asamblea actual";
+    ?>
+    <script>
+        // JavaScript para mostrar el mensaje de error en una ventana emergente
+        alert("Usted ya votó en la asamblea actual");
+        // Redireccionamiento a la página anterior
+        window.history.back();
+    </script>
+    <?php
 } else {
     $sql = "INSERT INTO votaciones (idpropuesta, idvotante) VALUES ('$idpropuesta', '$id')";
     if ($conexion->query($sql) === TRUE) {
-        echo "Votación registrada correctamente";
+        ?>
+        <script>
+            // JavaScript para mostrar el mensaje de éxito en una ventana emergente
+            alert("Votación registrada correctamente");
+            // Redireccionamiento a la página anterior
+            window.history.back();
+        </script>
+        <?php
     }
 }
 ?>
