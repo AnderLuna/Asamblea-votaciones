@@ -9,33 +9,47 @@ $idpropuesta = $_POST['idpropuesta'];
 $idasamblea = $_POST['idasamblea'];
 
 // Realizar una consulta JOIN para obtener los datos de la propuesta, la asamblea y los votos
-$query = "SELECT * FROM propuestas, votaciones WHERE propuestas.idpropuesta = votaciones.idpropuesta and idasamblea = '$idasamblea' and idvotante = '$id'";
-
-$resultado = $conexion->query($query);
-
-// Verificar si se encontraron resultados
-if ($resultado->num_rows > 0) {
+$sql = "SELECT * FROM propuestas WHERE idpropuesta='$idpropuesta' and idusuario='$id'";
+$resultado = $conexion->query($sql);
+if($resultado->num_rows > 0){
     ?>
     <script>
         // JavaScript para mostrar el mensaje de error en una ventana emergente
-        alert("Usted ya votó en la asamblea actual");
+        alert("No puede votar por su propia propuesta");
         // Redireccionamiento a la página anterior
         window.history.back();
     </script>
-    <?php
-} else {
-    $sql = "INSERT INTO votaciones (idpropuesta, idvotante) VALUES ('$idpropuesta', '$id')";
+    <?php    
+}else{
+    $query = "SELECT * FROM propuestas, votaciones WHERE propuestas.idpropuesta = votaciones.idpropuesta and propuestas.idpropuesta='$idpropuesta' and idasamblea = '$idasamblea' and idvotante = '$id'";
 
-    $query = "UPDATE propuestas SET votos=votos+1 WHERE idpropuesta='$idpropuesta'";
-    if ($conexion->query($sql) === TRUE and $conexion->query($query) === TRUE) {
+    $resultado = $conexion->query($query);
+
+    // Verificar si se encontraron resultados
+    if ($resultado->num_rows > 0) {
         ?>
         <script>
-            // JavaScript para mostrar el mensaje de éxito en una ventana emergente
-            alert("Votación registrada correctamente");
+            // JavaScript para mostrar el mensaje de error en una ventana emergente
+            alert("Usted ya votó en la asamblea actual");
             // Redireccionamiento a la página anterior
             window.history.back();
         </script>
         <?php
+    } else {
+        $sql = "INSERT INTO votaciones (idpropuesta, idvotante) VALUES ('$idpropuesta', '$id')";
+
+        $query = "UPDATE propuestas SET votos=votos+1 WHERE idpropuesta='$idpropuesta'";
+        if ($conexion->query($sql) === TRUE and $conexion->query($query) === TRUE) {
+            ?>
+            <script>
+                // JavaScript para mostrar el mensaje de éxito en una ventana emergente
+                alert("Votación registrada correctamente");
+                // Redireccionamiento a la página anterior
+                window.history.back();
+            </script>
+            <?php
+        }
     }
 }
+
 ?>
