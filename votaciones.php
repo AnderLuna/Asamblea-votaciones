@@ -190,9 +190,10 @@
                 <th>IdAsamblea</th>
                 <th>Título</th>
                 <th>Descripción</th>
-                <th>Votos</th>
                 <th>Estado</th>
+                <th>Votos</th>
             </tr>
+            <?php include 'visualizacion_votaciones_pasadas.php'; ?>
         </table>
         </form>
     </div>    
@@ -209,6 +210,7 @@
                 <th>Votos</th>
                 <th>Estado</th>
             </tr>
+            <?php include 'propuesta_mas_votos_pasadas.php'; ?>
         </table>
         </form>
     </div>    
