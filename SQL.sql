@@ -20,18 +20,18 @@ CREATE TABLE subtemas (
     idtema VARCHAR(5) PRIMARY KEY NOT NULL,
     idasamblea VARCHAR(5) NOT NULL,
     tema VARCHAR(100) NOT NULL,
+    idusuario VARCHAR(10) NOT NULL,
     estado VARCHAR(100) NOT NULL,
-    FOREIGN KEY (idasamblea) REFERENCES asambleas(idasamblea)
+    FOREIGN KEY (idasamblea) REFERENCES asambleas(idasamblea),
+    FOREIGN KEY (idusuario) REFERENCES usuarios(id)
 );
 
 CREATE TABLE propuestas (
     idpropuesta VARCHAR(5)PRIMARY KEY NOT NULL,
     idtema VARCHAR(5) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
-    idusuario VARCHAR(10) NOT NULL,
     votos INT NOT NULL,
-    FOREIGN KEY (idtema) REFERENCES subtemas(idtema),
-    FOREIGN KEY (idusuario) REFERENCES usuarios(id)
+    FOREIGN KEY (idtema) REFERENCES subtemas(idtema)
 );
 
 CREATE TABLE votaciones (
