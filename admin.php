@@ -179,35 +179,6 @@
     </div>
 
     <div class="form-container">
-        <form id="form-reg" action="registros.php" method="post" class="form-group">
-            <h1>Registro de Usuarios</h1>
-            <label for="id">ID:</label>
-            <input type="text" id="id" name="id" required>
-
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-
-            <label for="edad">Edad:</label>
-            <input type="text" id="edad" name="edad" required>
-
-            <label for="cargo">Cargo:</label>
-            <input type="text" id="cargo" name="cargo" required>
-
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
-
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-
-            <input id="btn-reg-us" type="submit" value="Registrar Usuario">
-        </form>
-
         <div class="form-vert">
             <form action="registrar_asambleas.php" method="post" class="form-group">
                 <h1>Registro de Asambleas</h1>
@@ -259,23 +230,6 @@
                 <?php include 'visualizacion_asambleas_admin.php'; ?>
         </form>
     </div>    
-
-    <script> // Script de JavaScript para que solo permita escribir numeros en los campos ID y edad.
-    document.addEventListener('DOMContentLoaded', function() {
-        var idInput = document.getElementById('id');
-        var edadInput = document.getElementById('edad');
-        
-        idInput.addEventListener('input', function(event) {
-            // Reemplaza cualquier carácter que no sea un número con una cadena vacía
-            this.value = this.value.replace(/\D/g, '');
-        });
-        
-        edadInput.addEventListener('input', function(event) {
-            // Reemplaza cualquier carácter que no sea un número con una cadena vacía
-            this.value = this.value.replace(/\D/g, '');
-        });
-    });
-    </script>
 
 </body>
 </html>
