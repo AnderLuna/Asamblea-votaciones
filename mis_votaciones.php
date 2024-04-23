@@ -6,7 +6,7 @@ require_once 'database.php';
 $conexion = Database::obtenerConexion();
 
 // Consulta SQL para obtener las propuestas
-$query = "SELECT propuestas.idasamblea, propuestas.idpropuesta, propuestas.titulo, propuestas.descripcion, asambleas.estado FROM asambleas, propuestas, votaciones WHERE asambleas.idasamblea = propuestas.idasamblea and votaciones.idpropuesta=propuestas.idpropuesta and asambleas.idasamblea = '$idasamblea' and idvotante='$id'";
+$query = "SELECT idasamblea, propuestas.idpropuesta, propuestas.descripcion, subtemas.estado FROM subtemas, propuestas, votaciones WHERE votaciones.idpropuesta=propuestas.idpropuesta and subtemas.idasamblea = '$idasamblea' and idvotante='$id'";
 
 $resultado = $conexion->query($query);
 
@@ -17,7 +17,6 @@ if ($resultado->num_rows > 0) {
         echo "<tr>";
         echo "<td>" . $fila['idasamblea'] . "</td>";
         echo "<td>" . $fila['idpropuesta'] . "</td>";
-        echo "<td>" . $fila['titulo'] . "</td>";
         echo "<td>" . $fila['descripcion'] . "</td>";
         echo "<td>" . $fila['estado'] . "</td>";
         echo "<td>";
