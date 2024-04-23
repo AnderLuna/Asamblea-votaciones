@@ -9,7 +9,7 @@ $conexion = Database::obtenerConexion();
 
 // Validar votos y actualizar la propuesta
 function validarAsamblea($conexion, $idasamblea){
-    $sql = "SELECT * FROM asambleas, propuestas WHERE asambleas.idasamblea = propuestas.idasamblea and asambleas.idasamblea = '$idasamblea'";
+    $sql = "SELECT * FROM asambleas, subtemas WHERE asambleas.idasamblea = subtemas.idasamblea and asambleas.idasamblea = '$idasamblea'";
     $resultado = $conexion->query($sql);
 
     if ($resultado->num_rows > 0) {
