@@ -9,7 +9,7 @@ $idpropuesta = $_POST['idpropuesta'];
 $idasamblea = $_POST['idasamblea'];
 
 // Realizar una consulta JOIN para obtener los datos de la propuesta, la asamblea y los votos
-$sql = "SELECT * FROM propuestas WHERE idpropuesta='$idpropuesta' and idusuario='$id'";
+$sql = "SELECT * FROM propuestas, subtemas WHERE subtemas.idtema=propuestas.idtema and idpropuesta='$idpropuesta' and subtemas.idusuario='$id'";
 
 $resultado = $conexion->query($sql);
 
