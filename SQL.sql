@@ -10,25 +10,33 @@ CREATE TABLE usuarios (
 );
 
 CREATE TABLE asambleas (
-    idasamblea INT PRIMARY KEY NOT NULL,
-    tema VARCHAR(100) NOT NULL,
+    idasamblea VARCHAR(5) PRIMARY KEY NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
     fecha DATE NOT NULL,
     estado VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE subtemas (
+    idtema VARCHAR(5) PRIMARY KEY NOT NULL,
+    idasamblea VARCHAR(5) NOT NULL,
+    tema VARCHAR(100) NOT NULL,
+    estado VARCHAR(100) NOT NULL,
+    FOREIGN KEY (idasamblea) REFERENCES asambleas(idasamblea)
+);
+
 CREATE TABLE propuestas (
-    idpropuesta INT(5)PRIMARY KEY NOT NULL,
-    idasamblea INT(5) NOT NULL,
+    idpropuesta VARCHAR(5)PRIMARY KEY NOT NULL,
+    idtema VARCHAR(5) NOT NULL,
     titulo VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     idusuario VARCHAR(10) NOT NULL,
     votos INT NOT NULL,
-    FOREIGN KEY (idasamblea) REFERENCES asambleas(idasamblea),
+    FOREIGN KEY (idtema) REFERENCES subtemas(idtema),
     FOREIGN KEY (idusuario) REFERENCES usuarios(id)
 );
 
 CREATE TABLE votaciones (
-    idpropuesta INT(5) NOT NULL,
+    idpropuesta VARCHAR(5) NOT NULL,
     idvotante VARCHAR(10) NOT NULL,
     PRIMARY KEY (idpropuesta, idvotante),
     FOREIGN KEY (idpropuesta) REFERENCES propuestas(idpropuesta),
