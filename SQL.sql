@@ -27,7 +27,6 @@ CREATE TABLE subtemas (
 CREATE TABLE propuestas (
     idpropuesta VARCHAR(5)PRIMARY KEY NOT NULL,
     idtema VARCHAR(5) NOT NULL,
-    titulo VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     idusuario VARCHAR(10) NOT NULL,
     votos INT NOT NULL,
