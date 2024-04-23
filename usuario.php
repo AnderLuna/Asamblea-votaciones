@@ -127,14 +127,22 @@
         <?php include 'asamblea_actual.php'; ?>
     </div>
 
+    <div class="container">
+        <h2>Crear tema de Propuesta</h2>
+        <form action="registrar_subtema.php" method="post" class="form-group">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="hidden" name="idasamblea" value="<?php echo $idasamblea; ?>">
+            <label for="tema">Tema a proponer:</label>
+            <input type="text" id="tema" name="tema" required>    
+            <input type="submit" value="Registrar Tema">
+        </form>
+    </div>
 
     <div class="container">
         <h2>Registro de Propuestas</h2>
         <form action="registrar_propuesta.php" method="post" class="form-group">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="hidden" name="idasamblea" value="<?php echo $idasamblea; ?>">
-            <label for="titulo">Título de la Propuesta:</label>
-            <input type="text" id="titulo" name="titulo" required>
             <label for="descripcion">Descripción de la Propuesta:</label>
             <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
             <input type="submit" value="Registrar Propuesta">
@@ -147,9 +155,8 @@
         <form class="form-group">
         <table>
             <tr>
-                <th>IdAsamblea</th>
                 <th>IdPropuesta</th>
-                <th>Título</th>
+                <th>IdTema</th>
                 <th>Descripción</th>
                 <th>Votos</th>
             </tr>
