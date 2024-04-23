@@ -16,7 +16,7 @@ if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $fila['idasamblea'] . "</td>";
-        echo "<td>" . $fila['tema'] . "</td>";
+        echo "<td>" . $fila['nombre'] . "</td>";
         echo "<td>" . $fila['fecha'] . "</td>";
         echo "<td>" . $fila['estado'] . "</td>";
         echo "</tr>";
