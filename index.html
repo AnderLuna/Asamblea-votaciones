@@ -52,7 +52,12 @@
 
         .login-container input[type="submit"]:hover {
             background-color: #0056b3;
-        }            
+        }  
+
+        #botones{
+            display: flex;
+            justify-content: space-around;            
+        }          
     </style>
 </head>
 
@@ -60,9 +65,14 @@
     <div class="login-container">
         <h1>Bienvenido a la Asamblea de Votación</h1>
         <p>Por favor, inicia sesión para acceder a la plataforma de votación.</p>
-        <form action="login.html">
-            <input type="submit" value="Iniciar Sesión">
-        </form>
+        <div id="botones">
+            <form action="login.html">
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+            <form action="register.html">
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
     </div>
 </body>
 </html>
