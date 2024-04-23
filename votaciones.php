@@ -154,7 +154,7 @@
                 <tr>
                     <th>IdAsamblea</th>
                     <th>IdPropuesta</th>
-                    <th>Título</th>
+                    <th>Usuario</th>
                     <th>Descripción</th>
                     <th>Votos</th>
                     <th>Votar</th>
