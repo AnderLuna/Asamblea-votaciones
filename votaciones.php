@@ -139,7 +139,6 @@
         <table>
             <tr>
                 <th>IdAsamblea</th>
-                <th>Título</th>
                 <th>Descripción</th>
                 <th>Votos</th>
             </tr>
