@@ -4,7 +4,7 @@ require_once 'database.php';
 if (!empty($_POST["nombre"]) && !empty($_POST["fecha"])) {
 
     // Capturar los datos del formulario
-    $nombre = $_POST['tema'];
+    $nombre = $_POST['nombre'];
     $fecha = $_POST['fecha'];
     $idasamblea = generarNumeroAleatorio();
     $conexion = Database::obtenerConexion();
