@@ -23,7 +23,7 @@ if($resultado->num_rows > 0){
     </script>
     <?php    
 }else{
-    $query = "SELECT * FROM propuestas, votaciones WHERE propuestas.idpropuesta = votaciones.idpropuesta and idasamblea = '$idasamblea' and idvotante = '$id'";
+    $query = "SELECT * FROM subtemas, propuestas, votaciones WHERE propuestas.idpropuesta = votaciones.idpropuesta and subtemas.idtema=propuestas.idtema and subtemas.idasamblea = '$idasamblea' and idvotante = '$id'";
 
     $resultado = $conexion->query($query);
 
