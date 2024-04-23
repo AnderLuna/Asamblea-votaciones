@@ -212,8 +212,8 @@
             <form action="registrar_asambleas.php" method="post" class="form-group">
                 <h1>Registro de Asambleas</h1>
 
-                <label for="tema">Tema:</label>
-                <input type="text" id="tema" name="tema" required>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
 
                 <label for="fecha">Fecha:</label>
                 <input type="date" id="fecha" name="fecha" required>
@@ -252,7 +252,7 @@
         <table>
             <tr>
                 <th>IdAsamblea</th>
-                <th>Tema</th>
+                <th>Nombre</th>
                 <th>Fecha</th>
                 <th>Estado</th>
             </tr>
