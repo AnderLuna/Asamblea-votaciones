@@ -1,10 +1,10 @@
 <?php
 require_once 'database.php'; 
 
-if (!empty($_POST["tema"]) && !empty($_POST["fecha"])) {
+if (!empty($_POST["nombre"]) && !empty($_POST["fecha"])) {
 
     // Capturar los datos del formulario
-    $tema = $_POST['tema'];
+    $nombre = $_POST['tema'];
     $fecha = $_POST['fecha'];
     $idasamblea = generarNumeroAleatorio();
     $conexion = Database::obtenerConexion();
@@ -12,7 +12,7 @@ if (!empty($_POST["tema"]) && !empty($_POST["fecha"])) {
     $fecha_format = date('Y-m-d', strtotime($fecha));
 
     // Consulta SQL para insertar la propuesta en la base de datos
-    $query = "INSERT INTO asambleas (idasamblea, tema, fecha, estado) VALUES ('$idasamblea', '$tema', '$fecha_format', 'nueva')";
+    $query = "INSERT INTO asambleas (idasamblea, nombre, fecha, estado) VALUES ('$idasamblea', '$nombre', '$fecha_format', 'nueva')";
 
     // Ejecutar la consulta SQL y manejar los errores
     if ($conexion->query($query) === TRUE) {
