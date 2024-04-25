@@ -1,3 +1,4 @@
+
 <?php
 // Aquí se debería incluir el archivo de conexión a la base de datos
 require_once 'database.php';
@@ -14,6 +15,8 @@ $resultado = $conexion->query($query);
 if ($resultado->num_rows > 0) {
     // Mostrar los datos en la tabla
     while ($fila = $resultado->fetch_assoc()) {
+        echo "<div class='container'>";
+        echo "<h2>Propuestas de </h2>";
         echo "<tr>";
         echo "<td>" . $fila['idasamblea'] . "</td>";
         echo "<td>" . $fila['idpropuesta'] . "</td>";        
@@ -28,6 +31,7 @@ if ($resultado->num_rows > 0) {
         echo "</form>";
         echo "</td>";
         echo "</tr>";
+        echo "</div>";
     }
 } else {
     // Si no se encontraron propuestas, mostrar un mensaje en la primera fila de la tabla
