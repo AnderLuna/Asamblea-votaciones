@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,21 +150,9 @@
         </form>
     </div>
 
-    <div class="container">
 
-        <h2>Visualización de Propuestas</h2>
-        <form class="form-group">
-        <table>
-            <tr>
-                <th>IdPropuesta</th>
-                <th>IdTema</th>
-                <th>Descripción</th>
-                <th>Votos</th>
-            </tr>
-                <?php include 'visualizacion_propuesta.php'; ?>
-        </table>
-    </form>
-    </div>
+    <?php include 'visualizacion_propuesta.php'; ?>
+
 
     <div class="container">
         <h2>Actualizacion de Propuesta</h2>
