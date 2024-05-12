@@ -139,16 +139,36 @@
         </form>
     </div>
 
-    <div class="container">
-        <h2>Registro de Propuestas</h2>
-        <form action="registrar_propuesta.php" method="post" class="form-group">
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <input type="hidden" name="idasamblea" value="<?php echo $idasamblea; ?>">
-            <label for="descripcion">Descripción de la Propuesta:</label>
-            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-            <input type="submit" value="Registrar Propuesta">
-        </form>
-    </div>
+<div class="container">
+    <h2>Registro de Propuestas</h2>
+    <!-- Combobox -->
+    <select name="tema" id="tema" class="form-control">
+        <?php
+        // Consulta SQL para obtener los temas disponibles
+        $query_temas = "SELECT idtema, tema FROM subtemas WHERE idusuario = '$id'";
+        $resultado_temas = $conexion->query($query_temas);
+        
+        // Verificar si se encontraron temas
+        if ($resultado_temas->num_rows > 0) {
+            // Mostrar los temas en el combobox
+            while ($fila_tema = $resultado_temas->fetch_assoc()) {
+                echo "<option value='" . $fila_tema['idtema'] . "'>" . $fila_tema['tema'] . "</option>";
+            }
+        } else {
+            echo "<option value='' disabled selected>No hay temas disponibles</option>";
+        }
+        ?>
+    </select>
+    <!-- Formulario de registro de propuestas -->
+    <form action="registrar_propuesta.php" method="post" class="form-group">
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="hidden" name="idasamblea" value="<?php echo $idasamblea; ?>">
+        <label for="descripcion">Descripción de la Propuesta:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+        <input type="submit" value="Registrar Propuesta">
+    </form>
+</div>
+
 
 
     <?php include 'visualizacion_propuesta.php'; ?>
