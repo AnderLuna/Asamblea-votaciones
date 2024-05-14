@@ -1,65 +1,50 @@
 <?php
 require_once 'database.php'; 
 
-if (!empty($_POST["titulo"]) && !empty($_POST["descripcion"])) {
+// Capturar los datos del formulario
+$id = $_POST['id'];
+$idtema = $_POST['tema']; // Obtener el ID del tema seleccionado del combobox
+$descripcion = $_POST['descripcion'];
+$idpropuesta = generarNumeroAleatorio();
+$conexion = Database::obtenerConexion(); 
 
-    // Capturar los datos del formulario
-    $id = $_POST['id'];
-    $titulo = $_POST["titulo"];
-    $descripcion = $_POST["descripcion"];
-    $IDPropuesta = generarNumeroAleatorio();
-    $conexion = Database::obtenerConexion(); 
+$consul = "SELECT idasamblea FROM asambleas WHERE estado='activa'";
+$resultado = $conexion->query($consul);
 
-    $consul = "SELECT idasamblea FROM asambleas WHERE estado='activa'";
-    $resultado = $conexion->query($consul);
+if ($resultado->num_rows > 0) {
+    $data = $resultado->fetch_assoc();
+    $idasamblea = $data['idasamblea'];
 
-    if ($resultado->num_rows > 0) {
-        $data = $resultado->fetch_assoc();
-        $idasamblea = $data['idasamblea'];
+    // Consulta SQL para insertar la propuesta en la base de datos
+    $query = "INSERT INTO propuestas (idpropuesta, idtema, descripcion, votos) 
+              VALUES ('$idpropuesta', '$idtema', '$descripcion', 0)";
 
-        // Consulta SQL para insertar la propuesta en la base de datos
-        $query = "INSERT INTO propuestas (idpropuesta, idasamblea, titulo, descripcion, idusuario, votos) VALUES ('$IDPropuesta', '$idasamblea', '$titulo', '$descripcion', '$id', 0)";
-
-        // Ejecutar la consulta SQL y manejar los errores
-        if ($conexion->query($query) === TRUE) {
-            
-            ?>
-            <script>
-                alert("Propuesta registrada correctamente.");
-                window.history.back();
-            </script>
-            <?php            
-        } else {
-            
-            ?>
-            <script>
-                alert("Error al registrar la propuesta: " . $conexion->error);
-                window.history.back();
-            </script>
-            <?php            
-        }
-
-        // Cerrar la conexión a la base de datos después de usarla
-        $conexion->close();        
-    }else{
-        
+    // Ejecutar la consulta SQL y manejar los errores
+    if ($conexion->query($query) === TRUE) {
         ?>
         <script>
-            alert("Aun no hay asambleas Activas");
+            alert("Propuesta registrada correctamente.");
             window.history.back();
         </script>
-        <?php        
+        <?php            
+    } else {
+        ?>
+        <script>
+            alert("Error al registrar la propuesta: <?php echo $conexion->error; ?>");
+            window.history.back();
+        </script>
+        <?php            
     }
 
+    // Cerrar la conexión a la base de datos después de usarla
+    $conexion->close();        
 } else {
-    // Si hay campos vacíos, mostrar un mensaje de error
-    
     ?>
     <script>
-        alert("Por favor, completa todos los campos del formulario.");
+        alert("Aún no hay asambleas activas.");
         window.history.back();
     </script>
-    <?php    
+    <?php        
 }
 
 // Función para generar un número aleatorio de 5 dígitos que no exista en la base de datos
