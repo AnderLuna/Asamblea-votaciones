@@ -197,6 +197,8 @@
 
             <input id="btn-reg-us" type="submit" value="Registrar Usuario">
         </form>
+         <button id="btn-back-us">Volver a la página anterior</button>
+        </div>
 
         <script> // Script de JavaScript para que solo permita escribir numeros en los campos ID y edad.
         document.addEventListener('DOMContentLoaded', function() {
@@ -212,6 +214,10 @@
                 // Reemplaza cualquier carácter que no sea un número con una cadena vacía
                 this.value = this.value.replace(/\D/g, '');
             });
+
+            document.getElementById('btn-back-us').addEventListener('click', function() {
+            window.history.back();
+        });
         });
         </script>        
 
