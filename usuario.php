@@ -107,7 +107,49 @@
 
         .container ul li a:hover {
             background-color: #ccc;
-        }        
+        }
+
+        /* Estilos para el combobox */
+        .form-group select {
+            
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            background-color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            appearance: none; /* Elimina los estilos de selección predeterminados */
+            -webkit-appearance: none; /* Para navegadores webkit */
+            -moz-appearance: none; /* Para navegadores Firefox */
+            position: relative; /* Posición relativa para el contenedor */
+        }
+
+        /* Estilo del triángulo desplegable */
+        .form-group select::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #333; /* Cambia el color del triángulo según tu diseño */
+            pointer-events: none; /* Para evitar que el triángulo afecte a la interacción */
+        }
+
+        /* Estilo al pasar el mouse sobre el combobox */
+        .form-group select:hover {
+            border-color: #999;
+        }
+
+        /* Estilo cuando el combobox está enfocado */
+        .form-group select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }                 
     </style>
 </head>
 
