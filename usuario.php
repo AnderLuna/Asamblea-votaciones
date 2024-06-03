@@ -107,7 +107,37 @@
 
         .container ul li a:hover {
             background-color: #ccc;
-        }        
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            background-color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            appearance: none; 
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            position: relative;
+        }
+
+        
+        .form-group select::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #333; 
+            pointer-events: none; 
+        }
+                       
     </style>
 </head>
 
