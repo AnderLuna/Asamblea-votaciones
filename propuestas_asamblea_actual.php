@@ -15,8 +15,6 @@ $resultado = $conexion->query($query);
 if ($resultado->num_rows > 0) {
     // Mostrar los datos en la tabla
     while ($fila = $resultado->fetch_assoc()) {
-        echo "<div class='container'>";
-        echo "<h2>Propuestas de </h2>";
         echo "<tr>";
         echo "<td>" . $fila['idasamblea'] . "</td>";
         echo "<td>" . $fila['idpropuesta'] . "</td>";        
