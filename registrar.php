@@ -27,7 +27,7 @@ if (validarID($id) && validarCampos($nombre, $apellido, $cargo) && validarEmail(
         
         ?>
         <script>
-            alert(" USUARIO NO REGISTRADO. El ID $id YA está en uso, por favor ingrese un ID válido.");
+            alert(" USUARIO NO REGISTRADO. El ID <?php echo $id; ?> YA está en uso, por favor ingrese un ID válido.");
             window.history.back();
         </script>
         <?php        
