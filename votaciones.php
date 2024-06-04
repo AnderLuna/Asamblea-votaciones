@@ -150,19 +150,9 @@
     <div class="container">
         <h2>Propuestas de la asamblea actual</h2>
         <form action="votar.php?id=<?php echo $id; ?>" method="post" class="form-group">
-            <table>
-                <tr>
-                    <th>IdAsamblea</th>
-                    <th>IdPropuesta</th>
-                    <th>Usuario</th>
-                    <th>Descripción</th>
-                    <th>Votos</th>
-                    <th>Votar</th>
-                </tr>
-                    <?php include 'propuestas_asamblea_actual.php'; ?>
-            </table>
+                <?php include 'propuestas_asamblea_actual.php'; ?>
         </form>
-    </div>   
+    </div>  
 
     <div class="container">
         <h2>Mis Votaciones</h2>
