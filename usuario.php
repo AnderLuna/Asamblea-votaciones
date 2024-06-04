@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,6 +148,7 @@
         <ul>
             <li><a href="actualizar_datos.php?id=<?php echo $id; ?>">Actualizar datos</a></li>
             <li><a href="votaciones.php?id=<?php echo $id; ?>">Votaciones</a></li>
+            <li><a href="buscar_propuestas.php?id=<?php echo $id; ?>">Buscar Propuestas</a></li>
 
         </ul>
     </div>
