@@ -201,12 +201,12 @@
         <input type="submit" value="Registrar Propuesta">
     </form>
 </div>
-
-
-
-
-    <?php include 'visualizacion_propuesta.php'; ?>
-
+    <div class="container">
+        <h2>Propuestas de la asamblea actual</h2>
+        <form action="votar.php?id=<?php echo $id; ?>" method="post" class="form-group">
+                <?php include 'visualizacion_propuesta.php'; ?>
+        </form>
+    </div> 
 
     <div class="container">
         <h2>Actualizacion de Propuesta</h2>
