@@ -161,7 +161,6 @@
             <tr>
                 <th>IdAsamblea</th>
                 <th>IdPropuesta</th>
-                <th>Título</th>
                 <th>Descripción</th>
                 <th>Estado</th>
                 <th>Accion</th>
