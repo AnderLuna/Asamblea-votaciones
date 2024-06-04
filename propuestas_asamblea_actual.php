@@ -1,4 +1,3 @@
-
 <?php
 // Aquí se debería incluir el archivo de conexión a la base de datos
 require_once 'database.php';
@@ -7,20 +6,40 @@ require_once 'database.php';
 $conexion = Database::obtenerConexion();
 
 // Consulta SQL para obtener las propuestas
-$query = "SELECT idasamblea, idpropuesta, usuarios.nombre, propuestas.descripcion, propuestas.votos FROM subtemas, propuestas, usuarios WHERE subtemas.idusuario=usuarios.id and subtemas.idasamblea= '$idasamblea'";
+$query = "SELECT subtemas.tema, subtemas.idasamblea, propuestas.idpropuesta, usuarios.nombre AS usuario_nombre, usuarios.apellido AS usuario_apellido, propuestas.descripcion, propuestas.votos 
+          FROM subtemas
+          JOIN propuestas ON subtemas.idtema = propuestas.idtema
+          JOIN usuarios ON subtemas.idusuario = usuarios.id
+          WHERE subtemas.idasamblea = '$idasamblea'
+          ORDER BY subtemas.tema";
 
 $resultado = $conexion->query($query);
 
 // Verificar si se encontraron resultados
 if ($resultado->num_rows > 0) {
-    // Mostrar los datos en la tabla
+    $currentTema = "";
+    // Mostrar los datos agrupados por tema
     while ($fila = $resultado->fetch_assoc()) {
-        echo "<div class='container'>";
-        echo "<h2>Propuestas de </h2>";
+        if ($currentTema != $fila['tema']) {
+            if ($currentTema != "") {
+                echo "</table><hr>";
+            }
+            $currentTema = $fila['tema'];
+            echo "<h3>Tema: " . $currentTema . " --------- Creador: " . $fila['usuario_nombre'] . " " . $fila['usuario_apellido'] . "</h3>";
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>IdAsamblea</th>";
+            echo "<th>IdPropuesta</th>";
+            echo "<th>Usuario</th>";
+            echo "<th>Descripción</th>";
+            echo "<th>Votos</th>";
+            echo "<th>Votar</th>";
+            echo "</tr>";
+        }
         echo "<tr>";
         echo "<td>" . $fila['idasamblea'] . "</td>";
         echo "<td>" . $fila['idpropuesta'] . "</td>";        
-        echo "<td>" . $fila['nombre'] . "</td>";
+        echo "<td>" . $fila['usuario_nombre'] . "</td>";
         echo "<td>" . $fila['descripcion'] . "</td>";
         echo "<td>" . $fila['votos'] . "</td>";
         echo "<td>";
@@ -31,10 +50,10 @@ if ($resultado->num_rows > 0) {
         echo "</form>";
         echo "</td>";
         echo "</tr>";
-        echo "</div>";
     }
+    echo "</table>";
 } else {
-    // Si no se encontraron propuestas, mostrar un mensaje en la primera fila de la tabla
-    echo "<tr><td colspan='5'>No se encontraron propuestas.</td></tr>";
+    // Si no se encontraron propuestas, mostrar un mensaje
+    echo "<p>No se encontraron propuestas.</p>";
 }
 ?>
