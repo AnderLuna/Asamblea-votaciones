@@ -23,7 +23,7 @@ if ($resultado->num_rows > 0) {
         
         ?>
         <script>
-            alert("Propuesta registrada correctamente.");
+            alert("Tema registrado correctamente.");
             window.history.back();
         </script>
         <?php            
