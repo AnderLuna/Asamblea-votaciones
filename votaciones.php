@@ -173,38 +173,20 @@
     <br><br><br><br>
     <div id="separador" class="encabezado">RESULTADOS DE PROPUESTAS DE ASAMBLEAS FINALIZADAS</div>
 
-    <div class="container">
-        <h2>Asambleas Pasadas</h2>
-        <form class="form-group">
+<div class="container">
+    <h2>Asambleas Pasadas</h2>
+    <form class="form-group">
         <table>
             <tr>
-                <th>IdAsamblea</th>
+                <th>Nombre Asamblea</th>
                 <th>Tema</th>
-                <th>Fecha</th>
-                <th>Estado</th>
-                <th>Total Votos</th>
+                <th>Propuesta con más votos</th>
+                <th>Votos</th>
             </tr>
             <?php include 'visualizacion_asambleas_pasadas.php'; ?>
         </table>
-        </form>
-    </div>    
-
-    <div class="container">
-        <h2>Propuestas Ganadoras</h2>
-        <form class="form-group">
-        <table>
-            <tr>
-                <th>IdAsamblea</th>
-                <th>IdPropuesta</th>
-                <th>Título</th>
-                <th>Descripción</th>
-                <th>Votos</th>
-                <th>Estado</th>
-            </tr>
-            <?php include 'propuesta_mas_votos_pasadas.php'; ?>
-        </table>
-        </form>
-    </div>    
+    </form>
+</div>  
   
 </body>
 </html>
