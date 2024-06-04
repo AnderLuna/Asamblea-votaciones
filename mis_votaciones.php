@@ -5,8 +5,12 @@ require_once 'database.php';
 // Obtener los datos de las propuestas desde la base de datos
 $conexion = Database::obtenerConexion();
 
-// Consulta SQL para obtener las propuestas
-$query = "SELECT idasamblea, propuestas.idpropuesta, propuestas.descripcion, subtemas.estado FROM subtemas, propuestas, votaciones WHERE votaciones.idpropuesta=propuestas.idpropuesta and subtemas.idasamblea = '$idasamblea' and idvotante='$id'";
+// Consulta SQL para obtener las propuestas que el usuario ha votado
+$query = "SELECT subtemas.idasamblea, propuestas.idpropuesta, propuestas.descripcion, propuestas.descripcion, subtemas.estado 
+          FROM votaciones 
+          JOIN propuestas ON votaciones.idpropuesta = propuestas.idpropuesta 
+          JOIN subtemas ON subtemas.idtema = propuestas.idtema 
+          WHERE votaciones.idvotante = '$id'";
 
 $resultado = $conexion->query($query);
 
@@ -30,6 +34,6 @@ if ($resultado->num_rows > 0) {
     }
 } else {
     // Si no se encontraron propuestas, mostrar un mensaje en la primera fila de la tabla
-    echo "<tr><td colspan='5'>No se encontraron propuestas.</td></tr>";
+    echo "<tr><td colspan='6'>No se encontraron propuestas.</td></tr>";
 }
 ?>
