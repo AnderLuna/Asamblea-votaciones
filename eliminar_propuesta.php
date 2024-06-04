@@ -8,6 +8,10 @@ $idpropuesta = $_POST["ideliminar"];
 // Obtener la conexión a la base de datos
 $conexion = Database::obtenerConexion();
 
+//Verificar si hay una asamblea activa
+$consul = "SELECT idasamblea FROM asambleas WHERE estado='activa'";
+$resultado = $conexion->query($consul);
+
 // Validar votos y actualizar la propuesta
 function validarVotos($conexion, $id, $idpropuesta){
     $sql = "SELECT votos FROM propuestas WHERE idpropuesta='$idpropuesta' AND idusuario='$id'";
@@ -59,8 +63,16 @@ function validarVotos($conexion, $id, $idpropuesta){
 }
 
 // Llamar a la función para validar votos y actualizar la propuesta
-validarVotos($conexion, $id, $idpropuesta);
-
+if ($resultado->num_rows > 0) {
+    validarVotos($conexion, $id, $idpropuesta);
+}else{
+    ?>
+    <script>
+        alert("Aun no hay asambleas Activas, por tanto no hay propuestas que eliminar");
+        window.history.back();
+    </script>
+    <?php
+}
 // Cerrar la conexión a la base de datos
 $conexion->close();
 ?>
