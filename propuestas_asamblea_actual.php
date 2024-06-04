@@ -10,7 +10,7 @@ $query = "SELECT subtemas.tema, subtemas.idasamblea, propuestas.idpropuesta, usu
           FROM subtemas
           JOIN propuestas ON subtemas.idtema = propuestas.idtema
           JOIN usuarios ON subtemas.idusuario = usuarios.id
-          WHERE subtemas.idasamblea = '$idasamblea' and subtemas.idusuario = '$id'
+          WHERE subtemas.idasamblea = '$idasamblea'
           ORDER BY subtemas.tema";
 
 $resultado = $conexion->query($query);
