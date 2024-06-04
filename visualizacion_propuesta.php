@@ -1,51 +1,51 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
+// Aquí se debería incluir el archivo de conexión a la base de datos
 require_once 'database.php';
 
 // Obtener los datos de las propuestas desde la base de datos
 $conexion = Database::obtenerConexion();
 
-// Consulta SQL para obtener los temas y sus propuestas
-$query = "SELECT subtemas.idtema, tema, idpropuesta, descripcion, votos 
+// Consulta SQL para obtener las propuestas
+$query = "SELECT subtemas.tema, subtemas.idasamblea, propuestas.idpropuesta, usuarios.nombre AS usuario_nombre, usuarios.apellido AS usuario_apellido, propuestas.descripcion, propuestas.votos 
           FROM subtemas
-          LEFT JOIN propuestas ON subtemas.idtema = propuestas.idtema 
-          WHERE subtemas.idasamblea='$idasamblea' and subtemas.idusuario = '$id'";
+          JOIN propuestas ON subtemas.idtema = propuestas.idtema
+          JOIN usuarios ON subtemas.idusuario = usuarios.id
+          WHERE subtemas.idasamblea = '$idasamblea' and subtemas.idusuario = '$id'
+          ORDER BY subtemas.tema";
 
 $resultado = $conexion->query($query);
 
 // Verificar si se encontraron resultados
 if ($resultado->num_rows > 0) {
-    // Mostrar los datos por tema
+    $currentTema = "";
+    // Mostrar los datos agrupados por tema
     while ($fila = $resultado->fetch_assoc()) {
-        // Mostrar el nombre del tema
-        echo "<div class='container'>";
-        echo "<h2>Tema: " . $fila['tema'] . " -- Codigo: " . $fila['idtema'] . "</h2>";
-
-        // Mostrar la tabla con las propuestas de ese tema
-        echo "<form class='form-group'>";
-        echo "<table>";
+        if ($currentTema != $fila['tema']) {
+            if ($currentTema != "") {
+                echo "</table><hr>";
+            }
+            $currentTema = $fila['tema'];
+            echo "<h3>Tema: " . $currentTema . " --------- Creador: " . $fila['usuario_nombre'] . " " . $fila['usuario_apellido'] . "</h3>";
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>IdAsamblea</th>";
+            echo "<th>IdPropuesta</th>";
+            echo "<th>Usuario</th>";
+            echo "<th>Descripción</th>";
+            echo "<th>Votos</th>";
+            echo "</tr>";
+        }
         echo "<tr>";
-        echo "<th>IdPropuesta</th>";
-        echo "<th>Descripción</th>";
-        echo "<th>Votos</th>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td>" . $fila['idpropuesta'] . "</td>";
+        echo "<td>" . $fila['idasamblea'] . "</td>";
+        echo "<td>" . $fila['idpropuesta'] . "</td>";        
+        echo "<td>" . $fila['usuario_nombre'] . "</td>";
         echo "<td>" . $fila['descripcion'] . "</td>";
         echo "<td>" . $fila['votos'] . "</td>";
         echo "</tr>";
-        echo "</table>";
-        echo "</form>";
-
-        echo "</div>";
     }
+    echo "</table>";
 } else {
     // Si no se encontraron propuestas, mostrar un mensaje
-    echo "<div class='container'>";
     echo "<p>No se encontraron propuestas.</p>";
-    echo "</div>";
 }
-
-// Cerrar la conexión a la base de datos
-//$conexion->close();
 ?>
